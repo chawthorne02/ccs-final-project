@@ -47,6 +47,7 @@ INSTALLED_APPS = [
 
     #Installed apps
     'accounts.apps.AccountsConfig',
+    'frontend.apps.FrontendConfig',
 
 ]
 
@@ -153,6 +154,7 @@ AUTH_USER_MODEL = "accounts.User"
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
+
 # Site ID
 # https://docs.djangoproject.com/en/3.0/ref/settings/#std:setting-SITE_ID
 
@@ -168,3 +170,9 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/3.0/ref/settings/#email-backend
 
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+
+# Static file directories
+# https://docs.djangoproject.com/en/3.1/ref/settings/#staticfiles-dirs
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'frontend/static/build/static/'),)
+REACT_APP_DIR = os.path.join(BASE_DIR, 'frontend/static/')
