@@ -45,9 +45,24 @@ INSTALLED_APPS = [
 
 
 
-    #Installed apps
+    # 3rd party installations
+    'rest_framework',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    'dj_rest_auth.registration',
+
+
+
+
+    # local
     'accounts.apps.AccountsConfig',
     'frontend.apps.FrontendConfig',
+    
+
+
 
 ]
 
