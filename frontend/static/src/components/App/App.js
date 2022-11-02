@@ -6,12 +6,13 @@ import LoginForm from '../LoginForm/LoginForm';
 import RegistrationForm from '../RegistrationForm/RegistrationForm';
 import MainPage from '../MainPage/MainPage';
 import Layout from '../Router/Router';
+import Coookies from 'js-cookie';
 
 
 
 const INITIAL_STATE = {
-  auth: false,
-  admin: false,
+  auth: !!Cookies.get('Authorization'),
+  staff: false,
 }
 
 
@@ -21,25 +22,26 @@ function App() {
   const newState = JSON.parse(window.localStorage.getItem("superState"));
 
   useEffect(() => {
+    console.log('firing');
     window.localStorage.setItem("superState", JSON.stringify(superState));
-  }, [superState]);
+  }, []);
 
   const handleError = (err) => {
     console.warn(err);
   };
 
-  useEffect(() => {
-    const checkAuth = async () => {
-      const response = await fetch("/dj-rest-auth/user/");
-      if (!response.ok) {
-        console.log("this", response.ok);
-        setSuperState(INITIAL_STATE);
-      } else {
-        setSuperState(newState);
-      }
-    };
-    checkAuth();
-  }, []);
+  // useEffect(() => {
+  //   const checkAuth = async () => {
+  //     const response = await fetch("/dj-rest-auth/user/");
+  //     if (!response.ok) {
+  //       console.log("this", response.ok);
+  //       setSuperState(INITIAL_STATE);
+  //     } else {
+  //       setSuperState(newState);
+  //     }
+  //   };
+  //   checkAuth();
+  // }, []);
 
   const logoutUser = async (e) => {
     e.preventDefault();
@@ -69,10 +71,12 @@ function App() {
           <Route path="/" element={<Layout superState={superState} logoutUser={logoutUser} />}>
             <Route index element={<MainPage />} />
           </Route>
+          
           <Route
             path="login"
             element={<LoginForm superState={superState} setSuperState={setSuperState} />}
           />
+          
           <Route
             path="register"
             element={<RegistrationForm superState={superState} setSuperState={setSuperState} />}

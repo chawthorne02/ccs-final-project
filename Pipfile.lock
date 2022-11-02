@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "a2ad434bc2ca77f22338ed3938768cef7597900590435fb3a13fb78df017ec7d"
+            "sha256": "bdcf0243dfbb65243b1c4323915b3af810e5cb9a6555d0a9514bf0a261687e5c"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -177,6 +177,14 @@
             ],
             "index": "pypi",
             "version": "==0.51.0"
+        },
+        "django-phonenumber-field": {
+            "hashes": [
+                "sha256:dab78094e83f4b1276effca9903e6728e940d055b00cc8589ad5b8a22cb6a03b",
+                "sha256:f1aaee276b18a8f0bf503d52eda183965ca164a6379c1e70f73718bcc8a91345"
+            ],
+            "index": "pypi",
+            "version": "==7.0.0"
         },
         "djangorestframework": {
             "hashes": [

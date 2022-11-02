@@ -52,7 +52,7 @@ function RegistrationForm({ superState, setSuperState }) {
         const data = await response.json();
         Cookies.set("Authorization", `Token ${data.key}`);
         navigate("/profile");
-        setSuperState({ ...superState, auth: true, admin: data.is_superuser });
+        setSuperState({ ...superState, auth: true, staff: data.is_staff });
       }
     };
   

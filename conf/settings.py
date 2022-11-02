@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     "whitenoise.runserver_nostatic",
     'django.contrib.staticfiles',
+    
 
 
 
@@ -53,9 +54,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'allauth.socialaccount',
     'dj_rest_auth.registration',
-
-
-
+    "phonenumber_field",
 
     # local
     'accounts.apps.AccountsConfig',
@@ -63,11 +62,17 @@ INSTALLED_APPS = [
     'profiles.apps.ProfilesConfig',
     'frontend.apps.FrontendConfig',
 
-    
-
-
-
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ],
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
+}
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
