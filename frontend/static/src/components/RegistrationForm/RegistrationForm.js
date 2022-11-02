@@ -37,6 +37,7 @@ function RegistrationForm({ superState, setSuperState }) {
   
     const handleSubmit = async (e) => {
       e.preventDefault();
+
       const options = {
         method: "POST",
         headers: {

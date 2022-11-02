@@ -172,6 +172,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # https://docs.djangoproject.com/en/3.1/topics/auth/customizing/#substituting-a-custom-user-model
 AUTH_USER_MODEL = "accounts.User"
 
+# django-allauth custom user models
+# https://django-allauth.readthedocs.io/en/latest/advanced.html
+ACCOUNT_ADAPTER = 'accounts.adapter.AccountAdapter'
+
 # Static file directories
 # https://docs.djangoproject.com/en/3.1/ref/settings/#staticfiles-dirs
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
@@ -199,3 +203,15 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 # https://docs.djangoproject.com/en/3.1/ref/settings/#staticfiles-dirs
 STATICFILES_DIRS = (os.path.join(BASE_DIR, 'frontend/static/build/static/'),)
 REACT_APP_DIR = os.path.join(BASE_DIR, 'frontend/static/')
+
+# REST_AUTH_SERIALIZERS
+# https://dj-rest-auth.readthedocs.io/en/latest/configuration.html
+
+REST_AUTH_SERIALIZERS = {
+    'USER_DETAILS_SERIALIZER': 'accounts.serializers.UserDetailsSerializer',
+}
+
+
+REST_AUTH_REGISTER_SERIALIZERS = {
+    'REGISTER_SERIALIZER': 'accounts.serializers.RegisterSerializer',
+}
