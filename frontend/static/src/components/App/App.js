@@ -6,7 +6,8 @@ import LoginForm from '../LoginForm/LoginForm';
 import RegistrationForm from '../RegistrationForm/RegistrationForm';
 import MainPage from '../MainPage/MainPage';
 import Layout from '../Router/Router';
-import ProfileForm from '../ProfileForm/ProfileForm';
+import StudentProfileForm from '../StudentProfileForm/StudentProfileForm';
+import TutorProfileForm from '../TutorProfileForm/TutorProfileForm';
 
 
 
@@ -83,10 +84,17 @@ function App() {
             element={<RegistrationForm superState={superState} setSuperState={setSuperState} />}
           />
 
+
           <Route 
-          path="profile"
-          element={<ProfileForm />}
+          path="student-profile-creation"
+          element={<StudentProfileForm />}
           />
+
+          <Route 
+          path="tutor-profile-creation"
+          element={<TutorProfileForm />}
+          />
+
 
 
         </Routes>

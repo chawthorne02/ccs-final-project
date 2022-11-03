@@ -71,8 +71,13 @@ function RegistrationForm({ superState, setSuperState }) {
       } else {
         const data = await response.json();
         Cookies.set("Authorization", `Token ${data.key}`);
-        navigate("/profile");
+        // navigate("/profile");
         setSuperState({ ...superState, auth: true, staff: data.is_staff });
+        if (user.is_student === true) {
+            navigate("/student-profile-creation")
+        } else if (user.is_tutor === true) {
+            navigate("/tutor-profile-creation")
+        }
       }
     };
 
