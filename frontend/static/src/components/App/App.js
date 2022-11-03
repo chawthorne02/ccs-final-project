@@ -6,7 +6,8 @@ import LoginForm from '../LoginForm/LoginForm';
 import RegistrationForm from '../RegistrationForm/RegistrationForm';
 import MainPage from '../MainPage/MainPage';
 import Layout from '../Router/Router';
-import Coookies from 'js-cookie';
+import ProfileForm from '../ProfileForm/ProfileForm';
+
 
 
 
@@ -81,6 +82,13 @@ function App() {
             path="register"
             element={<RegistrationForm superState={superState} setSuperState={setSuperState} />}
           />
+
+          <Route 
+          path="profile"
+          element={<ProfileForm />}
+          />
+
+
         </Routes>
       </BrowserRouter>
     </div>
