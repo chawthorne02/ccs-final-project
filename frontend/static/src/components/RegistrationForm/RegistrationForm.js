@@ -4,12 +4,15 @@ import Form from "react-bootstrap/Form";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 
+
 function RegistrationForm({ superState, setSuperState }) {
     const [user, setUser] = useState({
       username: "",
       email: "",
       password1: "",
       password2: "",
+      is_tutor: false,
+      is_student: false,
     });
   
     const navigate = useNavigate();
@@ -56,9 +59,13 @@ function RegistrationForm({ superState, setSuperState }) {
         setSuperState({ ...superState, auth: true, staff: data.is_staff });
       }
     };
+
+    const checkBoxLimit = (e) => {
+
+    }
   
     return (
-      <Form onSubmit={checkSamePass}>
+      <Form onSubmit={checkSamePass} className="register-form">
         <h1>Register</h1>
         <Form.Group className="mb-3" controlId="username">
           <Form.Label>Username</Form.Label>
@@ -109,6 +116,25 @@ function RegistrationForm({ superState, setSuperState }) {
         <Button variant="primary" type="submit">
           Submit
         </Button>
+        <Form.Label>Are you registering as a Student or Tutor?</Form.Label>
+        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Check 
+            type="checkbox"  
+            label="Student"
+            name="is_student"
+            value={user.is_student} 
+            onChange={handleInput} />
+        </Form.Group>
+        <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Check 
+            type="checkbox" 
+            label="Tutor"
+            name = "is_tutor"
+            value={user.is_tutor} 
+            onChange={handleInput} />
+        </Form.Group>
+
+
       </Form>
     );
   }
