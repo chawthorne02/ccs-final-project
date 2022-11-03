@@ -9,8 +9,8 @@ from phonenumber_field.formfields import PhoneNumberField
 
 
 class User(AbstractUser):
-    is_student = models.BooleanField(default=False, null=True)
-    is_tutor = models.BooleanField(default=False, null=True)
+    is_student = models.BooleanField(default=False)
+    is_tutor = models.BooleanField(default=False)
 
     def __str__(self):
         return self.username

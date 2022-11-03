@@ -14,11 +14,27 @@ function RegistrationForm({ superState, setSuperState }) {
       is_tutor: false,
       is_student: false,
     });
-  
+
+
     const navigate = useNavigate();
-  
+
+    const handleCheckbox = (e) => {
+        setUser((prevState) => ({
+            ...prevState,
+            is_tutor: false,
+            is_student: false,
+            [e.target.name]: !user[e.target.name],
+        }));
+    }
+   
     const handleInput = (e) => {
-      const { name, value } = e.target;
+
+      let { name, value } = e.target;
+
+      if(e.target.type === 'checkbox'){
+        value = !user[e.target.name];
+      }
+      
       setUser((prevState) => ({
         ...prevState,
         [name]: value,
@@ -122,16 +138,16 @@ function RegistrationForm({ superState, setSuperState }) {
             type="checkbox"  
             label="Student"
             name="is_student"
-            value={user.is_student} 
-            onChange={handleInput} />
+            checked={user.is_student} 
+            onChange={handleCheckbox} />
         </Form.Group>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Check 
             type="checkbox" 
             label="Tutor"
             name = "is_tutor"
-            value={user.is_tutor} 
-            onChange={handleInput} />
+            checked={user.is_tutor} 
+            onChange={handleCheckbox} />
         </Form.Group>
 
 
