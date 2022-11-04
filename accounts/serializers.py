@@ -1,10 +1,9 @@
 from rest_framework import serializers
 from dj_rest_auth.serializers import UserDetailsSerializer
 from dj_rest_auth.registration.serializers import RegisterSerializer
+from dj_rest_auth.models import TokenModel
 from django.db import models
-
-
-from .models import Tutor, Student, Reference, Lesson
+from .models import Tutor, Student, Reference, Lesson, User
 
 
 # class ProfileSerializer(serializers.ModelSerializer):
@@ -33,6 +32,25 @@ class UserDetailsSerializer(UserDetailsSerializer):
         fields = UserDetailsSerializer.Meta.fields + ('is_tutor', 'is_student', )
 
 
+
+class TokenSerializer(serializers.ModelSerializer):
+    is_superuser = serializers.ReadOnlyField(source='user.is_superuser')
+    id = serializers.ReadOnlyField(source='user.id')
+    is_tutor = serializers.ReadOnlyField(source='user.is_tutor')
+    is_student = serializers.ReadOnlyField(source='user.is_student')
+    tutor_avatar = serializers.ReadOnlyField(source='user.tutor.avatar')
+    student_avatar = serializers.ReadOnlyField(source='user.student.avatar')
+
+    class Meta:
+        model = TokenModel
+        fields = ('key', 'is_superuser', 'id', 'is_tutor', 'is_student', 'tutor_avatar', 'student_avatar')
+
+
+
+
+
+
+
 class StudentSerializer(serializers.ModelSerializer):
     class Meta:
         model = Student
@@ -44,6 +62,7 @@ class TutorSerializer(serializers.ModelSerializer):
     class Meta:
         model = Tutor
         fields = '__all__'
+        read_only_fields = ['is_verified']
 
 
 class ReferenceSerializer(serializers.ModelSerializer):
