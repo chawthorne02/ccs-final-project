@@ -16,7 +16,7 @@ function Header({ superState, logoutUser }) {
   
     return (
       <>
-        <Navbar bg="warning" expand="lg">
+        <Navbar className="navbar" expand="lg">
           <Container>
             <div id="basic-navbar-nav">
                 <h2>Better Minds Tutoring</h2>
