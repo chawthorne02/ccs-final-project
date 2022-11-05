@@ -76,7 +76,7 @@ const [user, setUser] = useState({
       <Button variant="primary" type="submit">
         Login
       </Button>
-      <p>No account? Click <Link to={"/register"}>here</Link> to register.</p>
+      <p className="no-account">No account? Click <Link to={"/register"}>here</Link> to register.</p>
 
 
 

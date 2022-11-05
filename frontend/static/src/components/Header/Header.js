@@ -18,7 +18,7 @@ function Header({ superState, logoutUser }) {
       <>
         <Navbar className="navbar" expand="lg">
           <Container>
-            <div id="basic-navbar-nav">
+            <div id="navbar-links">
                 <h2>Better Minds Tutoring</h2>
               <Nav className="me-auto">
                 {!superState.auth && (

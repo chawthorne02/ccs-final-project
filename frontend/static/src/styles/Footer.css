@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+
+
+.footer-container {
+    background-color: #73e294;
+    color: #f8f5f5;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    margin-top: 30px;
+    padding-top: 10px; 
+    padding-bottom: 10px;
+}
+
+.end-tag {
+    text-align: center;
+    font-size: x-large;
+}
+
+.copyright {
+    text-align: center;
+}

@@ -134,9 +134,6 @@ function RegistrationForm({ superState, setSuperState }) {
             onChange={handleInput}
           />
         </Form.Group>
-        <Button variant="primary" type="submit">
-          Submit
-        </Button>
         <Form.Label>Are you registering as a Student or Tutor?</Form.Label>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
             <Form.Check 
@@ -154,6 +151,9 @@ function RegistrationForm({ superState, setSuperState }) {
             checked={user.is_tutor} 
             onChange={handleCheckbox} />
         </Form.Group>
+        <Button variant="primary" type="submit">
+          Submit
+        </Button>
 
 
       </Form>

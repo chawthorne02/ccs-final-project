@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
 import Cookies from "js-cookie";
-import './App.css';
+import '../../styles/App.css';
 import { BrowserRouter as Router, Routes, Route, useNavigate, Link, BrowserRouter } from "react-router-dom";
 import LoginForm from '../LoginForm/LoginForm';
 import RegistrationForm from '../RegistrationForm/RegistrationForm';
-import MainPage from '../MainPage/MainPage';
-import Layout from '../Router/Router';
+import WelcomePage from '../WelomePage/WelcomePage';
+import Layout from '../Layout/Layout';
 import StudentProfileForm from '../StudentProfileForm/StudentProfileForm';
 import TutorProfileForm from '../TutorProfileForm/TutorProfileForm';
 
@@ -70,15 +70,19 @@ function App() {
     <div className="App">
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<Layout superState={superState} logoutUser={logoutUser} />}>
-            <Route index element={<MainPage />} />
-          </Route>
-          
-          <Route
+          <Route path="/" element={<Layout superState={superState} setSuperState={setSuperState} logoutUser={logoutUser} />}>
+            <Route index element={<WelcomePage />} />
+            <Route
             path="login"
             element={<LoginForm superState={superState} setSuperState={setSuperState} />}
           />
+          </Route>
           
+          {/* <Route
+            path="login"
+            element={<LoginForm superState={superState} setSuperState={setSuperState} />}
+          />
+           */}
           <Route
             path="register"
             element={<RegistrationForm superState={superState} setSuperState={setSuperState} />}

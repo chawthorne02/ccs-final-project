@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+
+.welcomepic {
+    width: 75%;
+    object-fit: cover;
+    object-position: center;
+    height: 450px;
+    opacity: 2;
+    filter: brightness(90%);
+    z-index: -1;
+    margin-left: 12%;
+}
+
+.welcome-page-text {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    color: #f8f5f5;
+    text-align: center;
+}
+
+.welcome-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 50%;
+    margin-top: 20px;
+}
+
+.welcome-create-account {
+  background-color: #73e294;
+  width: 15%;
+}
+
+.welcome-login {
+  background-color: #73e294;
+  width: 10%;
+}
+
