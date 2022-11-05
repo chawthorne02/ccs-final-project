@@ -16,7 +16,7 @@ class User(AbstractUser):
         return self.username
 
     
-class Student(models.Model):
+class StudentProfile(models.Model):
 
     ELEMENTARY = "Elementary"
     MIDDLE_SCHOOL = "Middle"
@@ -43,6 +43,7 @@ class Student(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True)
     avatar = models.ImageField(upload_to='profiles/', null=True)
+    location = models.CharField(max_length=225, null=True)
     grade_level = models.CharField(max_length=25, choices=EDUCATION_CHOICES, null=True)
     subject = models.CharField(max_length=25, choices=SUBJECT_CHOICES, null=True)
     bio = models.TextField(null=True)
@@ -51,7 +52,7 @@ class Student(models.Model):
         return self.user.username
 
 
-class Tutor(models.Model):
+class TutorProfile(models.Model):
     ELEMENTARY = "Elementary"
     MIDDLE_SCHOOL = "Middle"
     HIGH_SCHOOL = "High"
@@ -79,16 +80,17 @@ class Tutor(models.Model):
     level_preferred = models.CharField(max_length=25, choices=EDUCATION_CHOICES, null=True)
     subject = models.CharField(max_length=25, choices=SUBJECT_CHOICES, null=True)
     bio = models.TextField(null=True)
+    location = models.CharField(max_length=225, null=True)
     admin_verified = models.BooleanField(default=False)
     is_certified = models.BooleanField(default=False)
-    student = models.ForeignKey(Student, on_delete=models.CASCADE, blank=True)
+    student = models.ForeignKey(StudentProfile, on_delete=models.CASCADE, blank=True)
 
     def __str__(self):
         return self.user.username
 
 
 class Reference(models.Model):
-    tutor = models.ForeignKey(Tutor, on_delete=models.CASCADE, blank=True)
+    tutor = models.ForeignKey(TutorProfile, on_delete=models.CASCADE, blank=True)
     position = models.CharField(max_length=100, null=True)
     company_name = models.CharField(max_length=100, null=True)
     company_address = models.CharField(max_length=100, null=True)
@@ -104,8 +106,17 @@ class Reference(models.Model):
 class Lesson(models.Model):
     title = models.CharField(max_length=50, null=True)
     notes = models.TextField(null=True)
-    tutor = models.ForeignKey(Tutor, on_delete=models.CASCADE, blank=True)
-    student = models.ForeignKey(Student, on_delete=models.CASCADE, blank=True)
+    tutor = models.ForeignKey(TutorProfile, on_delete=models.CASCADE, blank=True)
+    student = models.ForeignKey(StudentProfile, on_delete=models.CASCADE, blank=True)
+
+
+class Review(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL,
+                             on_delete=models.CASCADE, blank=True)
+    text = models.TextField(null=True)
+    trainerprofile = models.ForeignKey(TutorProfile, on_delete=models.CASCADE, blank=True)
+    rating = models.IntegerField()
+    created_on = models.DateTimeField(auto_now_add=True, null=True)
 
 
 

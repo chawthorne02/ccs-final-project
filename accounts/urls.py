@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import TutorListApiView, TutorDetailApiView, StudentListApiView, StudentDetailApiView
+from .views import TutorProfileListApiView, TutorProfileDetailApiView, StudentProfileListApiView, StudentProfileDetailApiView, TutorReviewsListAPIView, UserListApiView
 
 app_name = 'accounts'
 

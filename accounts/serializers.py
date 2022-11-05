@@ -3,7 +3,7 @@ from dj_rest_auth.serializers import UserDetailsSerializer
 from dj_rest_auth.registration.serializers import RegisterSerializer
 from dj_rest_auth.models import TokenModel
 from django.db import models
-from .models import Tutor, Student, Reference, Lesson, User
+from .models import TutorProfile, StudentProfile, Reference, Lesson, User, Review
 
 
 # class ProfileSerializer(serializers.ModelSerializer):
@@ -51,16 +51,16 @@ class TokenSerializer(serializers.ModelSerializer):
 
 
 
-class StudentSerializer(serializers.ModelSerializer):
+class StudentProfileSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Student
+        model = StudentProfile
         fields = '__all__'
 
 
 
-class TutorSerializer(serializers.ModelSerializer):
+class TutorProfileSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Tutor
+        model = TutorProfile
         fields = '__all__'
         read_only_fields = ['is_verified']
 
@@ -74,6 +74,15 @@ class ReferenceSerializer(serializers.ModelSerializer):
 class LessonSerializer(serializers.ModelSerializer):
     class Meta:
         model = Lesson
+        fields = '__all__'
+
+class ReviewSerializer(serializers.ModelSerializer):
+    username = serializers.ReadOnlyField(source='user.username')
+    author_avatar = serializers.ImageField(
+        source='user.studentprofile.avatar', read_only=True)
+
+    class Meta:
+        model = Review
         fields = '__all__'
 
 
