@@ -3,6 +3,8 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
+import '../../styles/RegistrationForm.css';
+
 
 
 function RegistrationForm({ superState, setSuperState }) {
@@ -151,7 +153,7 @@ function RegistrationForm({ superState, setSuperState }) {
             checked={user.is_tutor} 
             onChange={handleCheckbox} />
         </Form.Group>
-        <Button variant="primary" type="submit">
+        <Button variant="primary" type="submit" className="register-submit-btn">
           Submit
         </Button>
 

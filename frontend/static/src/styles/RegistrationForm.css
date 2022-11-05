@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+
+
+
+.register-form {
+    margin-left: 25%;
+    margin-right: 25%;
+  }
+  
+.register-submit-btn {
+    background-color: #73e294;
+
+}

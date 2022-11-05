@@ -3,6 +3,9 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Cookies from "js-cookie";
 import { useNavigate, Link } from "react-router-dom";
+import '../../styles/LoginForm.css';
+
+
 
 function LoginForm({ superState, setSuperState }) {
 const [user, setUser] = useState({
@@ -49,7 +52,7 @@ const [user, setUser] = useState({
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit} className='login-form'>
       <h1>Login</h1>
       <Form.Group className="mb-3" controlId="username">
         <Form.Label>Username</Form.Label>
