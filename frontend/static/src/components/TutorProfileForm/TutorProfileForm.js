@@ -88,7 +88,7 @@ function TutorProfileForm({ superState, setSuperState }) {
         tutor_avatar: data.avatar,
         tutor_profile: data.id,
       });
-      navigate("/");
+      navigate("tutor-dashboard");
     }
   };
         
@@ -135,9 +135,9 @@ function TutorProfileForm({ superState, setSuperState }) {
         
 
     return (
-        <section className="form-display">
-      <div className="form-box">
-        <div className="form-head">
+        <section className="tutor-form-display">
+      <div className="tutor-form-box">
+        <div className="tutor-form-head">
           <h1>Tutor Profile Creation Page</h1>
         </div>
         <ProgressBar className='progressBar' animated now={page * (100 / 3)} />

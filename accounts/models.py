@@ -12,8 +12,6 @@ class User(AbstractUser):
     is_student = models.BooleanField(default=False)
     is_tutor = models.BooleanField(default=False)
 
-    def __str__(self):
-        return self.username
 
     
 class StudentProfile(models.Model):
@@ -41,7 +39,7 @@ class StudentProfile(models.Model):
     ]
 
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
     avatar = models.ImageField(upload_to='profiles/', null=True)
     first_name = models.CharField(max_length=225, null=True)
     last_name = models.CharField(max_length=225, null=True)
@@ -50,8 +48,7 @@ class StudentProfile(models.Model):
     subject = models.CharField(max_length=25, choices=SUBJECT_CHOICES, null=True)
     bio = models.TextField(null=True)
 
-    def __str__(self):
-        return self.user.username
+    
 
 
 class TutorProfile(models.Model):
@@ -77,7 +74,7 @@ class TutorProfile(models.Model):
         (LANGUAGE_ARTS, "LA"),
     ]
 
-    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True)
+    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
     avatar = models.ImageField(upload_to='profiles/', null=True)
     first_name = models.CharField(max_length=225, null=True)
     last_name = models.CharField(max_length=225, null=True)
@@ -87,10 +84,11 @@ class TutorProfile(models.Model):
     location = models.CharField(max_length=225, null=True)
     admin_verified = models.BooleanField(default=False)
     is_certified = models.BooleanField(default=False)
-    student = models.ForeignKey(StudentProfile, on_delete=models.CASCADE, blank=True)
+    student = models.ForeignKey(StudentProfile, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
-        return self.user.username
+        return self.first_name + ' ' + self.last_name
+
 
 
 class Reference(models.Model):

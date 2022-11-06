@@ -52,7 +52,7 @@ function TutorPersonalForm({ state, preview, handleImage, handleInput, nextPage 
         />
       </Form.Group>
       <div className="form-footer">
-        <Button className="form-button" type="button" variant="dark" onClick={() => nextPage()}>
+        <Button className="tutor-form-button" type="button" variant="primary" onClick={() => nextPage()}>
           Next
         </Button>
       </div>

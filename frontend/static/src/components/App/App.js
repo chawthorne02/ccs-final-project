@@ -8,6 +8,7 @@ import WelcomePage from '../WelomePage/WelcomePage';
 import Layout from '../Layout/Layout';
 import StudentProfileForm from '../StudentProfileForm/StudentProfileForm';
 import TutorProfileForm from '../TutorProfileForm/TutorProfileForm';
+import TutorDashboard from '../TutorDashboard/TutorDashboard';
 
 
 
@@ -89,6 +90,12 @@ function App() {
           path="tutor-profile-creation"
           element={<TutorProfileForm />}
           />
+
+          <Route 
+          path="tutor-dashboard"
+          element={<TutorDashboard />}
+          />
+
 
           </Route>
           

@@ -1,3 +1,18 @@
  .progressBar {
     background-color: #73e294;
 }
+
+.tutor-form-display {
+    margin-top: 20px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.tutor-form-button {
+    background-color: #73e294;
+}
+
+.tutor-form-footer {
+    display: flex;
+    justify-content: space-between;
+}

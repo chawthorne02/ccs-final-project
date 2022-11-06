@@ -53,11 +53,11 @@ function TutorProfessionalForm({ state, handleInput, nextPage, lastPage }) {
         </Form.Select>
       </Form.Group>
 
-      <div className="form-footer">
-        <Button className="form-button" type="button" variant="dark" onClick={() => lastPage()}>
+      <div className="tutor-form-footer">
+        <Button className="tutor-form-button" type="button" variant="primary" onClick={() => lastPage()}>
           Back
         </Button>
-        <Button className="form-button" type="button" variant="dark" onClick={() => nextPage()}>
+        <Button className="tutor-form-button" type="button" variant="primary" onClick={() => nextPage()}>
           Next
         </Button>
       </div>

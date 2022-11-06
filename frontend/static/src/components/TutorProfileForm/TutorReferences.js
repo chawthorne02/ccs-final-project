@@ -93,29 +93,12 @@ function TutorReferenceForm({ state, handleInput, lastPage, handleSubmit }) {
 
       
 
-      <Form.Group className="mb-3" controlId="grade_level">
-        <Form.Label>What grade level would you like to teach</Form.Label>
-        <Form.Select
-          required
-          placeholder="Elementary, Middle, or High school..."
-          type="text"
-          name="grade_level"
-          value={state.grade_level}
-          onChange={handleInput}
-        >
-          <option>Select a grade level</option>
-          <option value="Elementary">Elementary</option>
-          <option value="Middle">Middle School</option>
-          <option value="High">High School</option>
-        </Form.Select>
-      </Form.Group>
 
-
-      <div className="form-footer">
-        <Button className="form-button" type="button" variant="dark" onClick={() => lastPage()}>
+      <div className="tutor-form-footer">
+        <Button className="tutor-form-button" type="button" variant="primary" onClick={() => lastPage()}>
           Back
         </Button>
-        <Button className="form-button" type="button" variant="dark" onClick={() => handleSubmit()}>
+        <Button className="tutor-form-button" type="button" variant="primary" onClick={() => handleSubmit()}>
           Save & Submit
         </Button>
       </div>
