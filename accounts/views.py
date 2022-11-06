@@ -22,7 +22,7 @@ class TutorProfileListApiView(generics.ListCreateAPIView):
     serializer_class = TutorProfileSerializer
 
     def get_queryset(self):
-        return TutorProfile.objects.filter(is_verified=True) # Returns a new QuerySet containing objects that match the given lookup parameters which "is_verified"
+        return TutorProfile.objects.filter(admin_verified=True) # Returns a new QuerySet containing objects that match the given lookup parameters which "is_verified"
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
@@ -92,4 +92,9 @@ class LessonDetailApiView(generics.RetrieveUpdateDestroyAPIView):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
+class ReviewListApiView(generics.ListCreateAPIView):
+    permission_classes = (IsUserOrReadOnly,)
+    queryset = Review.objects.all()
+    serializer_class = ReviewSerializer
 

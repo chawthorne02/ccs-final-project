@@ -43,6 +43,8 @@ class StudentProfile(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True)
     avatar = models.ImageField(upload_to='profiles/', null=True)
+    first_name = models.CharField(max_length=225, null=True)
+    last_name = models.CharField(max_length=225, null=True)
     location = models.CharField(max_length=225, null=True)
     grade_level = models.CharField(max_length=25, choices=EDUCATION_CHOICES, null=True)
     subject = models.CharField(max_length=25, choices=SUBJECT_CHOICES, null=True)
@@ -77,6 +79,8 @@ class TutorProfile(models.Model):
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True)
     avatar = models.ImageField(upload_to='profiles/', null=True)
+    first_name = models.CharField(max_length=225, null=True)
+    last_name = models.CharField(max_length=225, null=True)
     level_preferred = models.CharField(max_length=25, choices=EDUCATION_CHOICES, null=True)
     subject = models.CharField(max_length=25, choices=SUBJECT_CHOICES, null=True)
     bio = models.TextField(null=True)
@@ -114,7 +118,7 @@ class Review(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL,
                              on_delete=models.CASCADE, blank=True)
     text = models.TextField(null=True)
-    trainerprofile = models.ForeignKey(TutorProfile, on_delete=models.CASCADE, blank=True)
+    tutorprofile = models.ForeignKey(TutorProfile, on_delete=models.CASCADE, blank=True)
     rating = models.IntegerField()
     created_on = models.DateTimeField(auto_now_add=True, null=True)
 

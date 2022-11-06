@@ -76,19 +76,10 @@ function App() {
             path="login"
             element={<LoginForm superState={superState} setSuperState={setSuperState} />}
           />
-          </Route>
-          
-          {/* <Route
-            path="login"
-            element={<LoginForm superState={superState} setSuperState={setSuperState} />}
-          />
-           */}
-          <Route
+           <Route
             path="register"
             element={<RegistrationForm superState={superState} setSuperState={setSuperState} />}
           />
-
-
           <Route 
           path="student-profile-creation"
           element={<StudentProfileForm />}
@@ -98,6 +89,16 @@ function App() {
           path="tutor-profile-creation"
           element={<TutorProfileForm />}
           />
+
+          </Route>
+          
+          {/* <Route
+            path="login"
+            element={<LoginForm superState={superState} setSuperState={setSuperState} />}
+          />
+           */}
+
+         
 
 
 
