@@ -45,7 +45,7 @@ function TutorProfessionalForm({ state, handleInput, nextPage, lastPage }) {
           value={state.subject}
           onChange={handleInput}
         >
-          <option>Select an Option</option>
+          <option>Select an Subject</option>
           <option value="Math">Math</option>
           <option value="Science">Science</option>
           <option value="SS">Social Studies</option>

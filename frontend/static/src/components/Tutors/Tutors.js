@@ -47,7 +47,7 @@ function Tutors() {
 
   useEffect(() => {
     setActiveTutor(filteredTutors[0]);
-  }, [filteredTutors]);
+  }, [filter]);
 
 
 

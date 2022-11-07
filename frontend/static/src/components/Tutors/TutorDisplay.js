@@ -11,6 +11,8 @@ function TutorDisplay({ activeTutor }) {
             <Card.Title>{activeTutor.first_name} {activeTutor.last_name}</Card.Title>
             <span className='highlight-subject'>{activeTutor.subject}</span><br></br>
             <span className="highlight-grade-level">{activeTutor.level_preferred}</span>
+            <br></br>
+            <span className="highlight-email">Contact: {activeTutor.email}</span>
             <Card.Text>
                 <span className="highlight-bio">{activeTutor.bio}</span>
             </Card.Text>
