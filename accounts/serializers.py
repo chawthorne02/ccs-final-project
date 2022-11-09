@@ -78,8 +78,7 @@ class LessonSerializer(serializers.ModelSerializer):
 
 class ReviewSerializer(serializers.ModelSerializer):
     username = serializers.ReadOnlyField(source='user.username')
-    author_avatar = serializers.ImageField(
-        source='user.studentprofile.avatar', read_only=True)
+    author_avatar = serializers.ImageField(source='user.studentprofile.avatar', read_only=True)
 
     class Meta:
         model = Review

@@ -5,6 +5,7 @@ import { handleError } from '../../errorhandling';
 import TutorDisplay from "./TutorDisplay";
 import TutorList from "./TutorList";
 import '../../styles/Tutors.css';
+import Reviews from "../Reviews/Reviews";
 
 
 function Tutors() {
@@ -100,6 +101,7 @@ function Tutors() {
             filteredTutors={filteredTutors} />
         </aside>
       </section>
+      <Reviews activeTutorID={activeTutor?.id}/>
     </div>
   );
     

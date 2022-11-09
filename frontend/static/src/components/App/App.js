@@ -10,6 +10,9 @@ import StudentProfileForm from '../StudentProfileForm/StudentProfileForm';
 import TutorProfileForm from '../TutorProfileForm/TutorProfileForm';
 import TutorDashboard from '../TutorDashboard/TutorDashboard';
 import Tutors from '../Tutors/Tutors';
+import Reviews from '../Reviews/Reviews';
+import TutorReviews from '../Reviews/TutorReviews';
+import StudentDashboard from '../StudentDashboard/StudentDashboard';
 
 
 
@@ -103,6 +106,17 @@ function App() {
           />
 
 
+          <Route 
+          path="tutor/reviews"
+          element={<Reviews />}
+          />
+         
+         <Route 
+          path="student-dashboard"
+          element={<StudentDashboard />}
+          />
+
+
           </Route>
 
           
@@ -112,8 +126,9 @@ function App() {
           />
            */}
 
-         
 
+        
+          
 
 
         </Routes>

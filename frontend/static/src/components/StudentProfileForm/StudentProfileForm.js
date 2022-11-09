@@ -66,7 +66,7 @@ function StudentProfileForm() {
             const data = await response.json();
             console.log(data);
             setState(INITIAL_STUDENT_PROFILE_STATE);
-            navigate("/");
+            navigate("tutor-selection");
           }
     
     }

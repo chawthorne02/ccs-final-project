@@ -115,8 +115,10 @@ class Lesson(models.Model):
 
 
 class Review(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL,
-                             on_delete=models.CASCADE, blank=True)
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True)
+    first_name = models.CharField(max_length=225, null=True)
+    last_name = models.CharField(max_length=225, null=True)
+    avatar = models.ImageField(upload_to='profiles/', null=True)
     text = models.TextField(null=True)
     tutorprofile = models.ForeignKey(TutorProfile, on_delete=models.CASCADE, blank=True)
     rating = models.IntegerField()

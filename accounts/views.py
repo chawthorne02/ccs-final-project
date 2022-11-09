@@ -93,8 +93,21 @@ class LessonDetailApiView(generics.RetrieveUpdateDestroyAPIView):
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
-class ReviewListApiView(generics.ListCreateAPIView):
-    permission_classes = (IsUserOrReadOnly,)
-    queryset = Review.objects.all()
+class ReviewListAPIView(generics.ListCreateAPIView):
     serializer_class = ReviewSerializer
 
+    def get_queryset(self):
+        tutorprofile = self.kwargs['tutorprofile']
+        return Review.objects.filter(tutorprofile=tutorprofile)
+
+    def perform_create(self, serializer):
+        serializer.save(author=self.request.user)
+
+
+class ReviewDetailApiView(generics.RetrieveUpdateDestroyAPIView):
+    permission_classes = (IsUserOrReadOnly,)
+    queryset = queryset = Review.objects.all()
+    serializer_class = ReviewSerializer
+
+    def perform_create(self, serializer):
+        serializer.save(user=self.request.user)
