@@ -12,7 +12,7 @@ import TutorDashboard from '../TutorDashboard/TutorDashboard';
 import Tutors from '../Tutors/Tutors';
 import Reviews from '../Reviews/Reviews';
 import TutorReviews from '../Reviews/Rating';
-import StudentDashboard from '../StudentDashboard/StudentDashboard';
+import DashboardNav from '../Dashboard/DashboardNav';
 
 
 
@@ -112,8 +112,8 @@ function App() {
           />
          
          <Route 
-          path="student-dashboard"
-          element={<StudentDashboard />}
+          path="dashboard"
+          element={<DashboardNav />}
           />
 
 
@@ -126,7 +126,7 @@ function App() {
           />
            */}
 
-
+          
         
           
 
