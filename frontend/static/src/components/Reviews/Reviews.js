@@ -6,7 +6,7 @@ import Cookies from "js-cookie";
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import Rating from '@mui/material/Rating';
-import RadioGroupRating from './TutorReviews';
+import RadioGroupRating from './Rating';
 
 
 
@@ -57,6 +57,7 @@ function Reviews({activeTutorID}) {
   }, [filter]);
 
 
+
     return (
       <Card className='reviews'>
         {reviews.map((review) => (
@@ -74,6 +75,7 @@ function Reviews({activeTutorID}) {
 />
 
       </Card.Body>
+      
           </div>
         ))}
      

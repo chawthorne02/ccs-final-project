@@ -11,7 +11,7 @@ import TutorProfileForm from '../TutorProfileForm/TutorProfileForm';
 import TutorDashboard from '../TutorDashboard/TutorDashboard';
 import Tutors from '../Tutors/Tutors';
 import Reviews from '../Reviews/Reviews';
-import TutorReviews from '../Reviews/TutorReviews';
+import TutorReviews from '../Reviews/Rating';
 import StudentDashboard from '../StudentDashboard/StudentDashboard';
 
 

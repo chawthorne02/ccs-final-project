@@ -1,9 +1,19 @@
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
+import TutorReviews from '../Reviews/TutorReviews';
+import Modal from 'react-bootstrap/Modal';
+import RadioGroupRating from '../Reviews/Rating';
+import { useState } from 'react';
+import Cookies from "js-cookie";
+import { handleError } from '../../errorhandling';
+
+
 
 
 
 function TutorDisplay({ activeTutor }) {
+ 
+
     return (
       <Card className="highlight-tutor">
           <Card.Img variant='top' className="highlight-img" src={activeTutor.avatar} alt="Tutor" />
@@ -19,6 +29,8 @@ function TutorDisplay({ activeTutor }) {
           </Card.Body>
 
           <Button className='tutor-select-btn'>Select</Button>
+          <TutorReviews activeTutor={activeTutor} />
+         
           
         
        

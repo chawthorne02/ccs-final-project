@@ -8,7 +8,7 @@ import '../../styles/Tutors.css';
 import Reviews from "../Reviews/Reviews";
 
 
-function Tutors() {
+function Tutors({ reviews }) {
   const [tutors, setTutors] = useState([]);
   const [activeTutor, setActiveTutor] = useState();
   const [filter, setFilter] = useState();
@@ -101,7 +101,7 @@ function Tutors() {
             filteredTutors={filteredTutors} />
         </aside>
       </section>
-      <Reviews activeTutorID={activeTutor?.id}/>
+      <Reviews activeTutorID={activeTutor?.id} />
     </div>
   );
     
