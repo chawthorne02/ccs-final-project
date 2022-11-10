@@ -17,24 +17,40 @@ import '../../styles/TutorReview.css';
 
 
 function TutorReviews({ activeTutor, reviews, setReviews }) {
-    const [newReview, setNewReview] = useState ({
+    
+  const [newReview, setNewReview] = useState ({
         tutorprofile: activeTutor.id,
         text: "",
         rating: 0,
-    })
+    });
+
     const [show, setShow] = useState(false);
 
    
-  const handleShow = () => setShow(true);
+    const handleShow = () => setShow(true);
+
+    
+
+    useEffect(() => {
+      const setActiveTutor = () => {
+        setNewReview({
+          tutorprofile: activeTutor.id,
+          text: "",
+          rating: 0,
+      })
+    }
+
+      setActiveTutor();
+    }, [activeTutor]);
 
 
-  const handleInput = (e) => {
-    const { name, value } = e.target;
-    setNewReview((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
+    const handleInput = (e) => {
+      const { name, value } = e.target;
+      setNewReview((prevState) => ({
+        ...prevState,
+        [name]: value,
+      }));
+    };
 
   const handleClose = () => {
     setShow(false);
@@ -73,6 +89,8 @@ function TutorReviews({ activeTutor, reviews, setReviews }) {
       handleClose();
     }
   };
+
+  
 
 
     return (

@@ -8,10 +8,12 @@ import '../../styles/Tutors.css';
 import Reviews from "../Reviews/Reviews";
 
 
-function Tutors({ reviews }) {
+function Tutors() {
   const [tutors, setTutors] = useState([]);
   const [activeTutor, setActiveTutor] = useState();
   const [filter, setFilter] = useState();
+  const [reviews, setReviews] = useState([]);
+  const [activeReview, setActiveReview] = useState();
 
   const getTutors = useCallback(async () => {
     const response = await fetch("/api/v1/profiles/tutors/").catch(handleError);
@@ -49,6 +51,24 @@ function Tutors({ reviews }) {
   useEffect(() => {
     setActiveTutor(filteredTutors[0]);
   }, [filter]);
+
+
+  ////////////////// GET REVIEWS
+
+  const getReviews = useCallback(async () => {
+    const response = await fetch(`/api/v1/profiles/${activeTutor}/reviews/`).catch(handleError);
+    if (!response.ok) {
+      throw new Error("Network response was not OK");
+    } else {
+      const data = await response.json();
+      setReviews(data);
+      setActiveReview(data[0]);
+    }
+  }, [activeTutor]);
+
+  useEffect(() => {
+    getReviews();
+  }, [getReviews]);
 
 
 

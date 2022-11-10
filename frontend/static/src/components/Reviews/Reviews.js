@@ -22,7 +22,7 @@ import RadioGroupRating from './Rating';
 
 // }
 
-function Reviews({activeTutorID}) {
+function Reviews({activeTutorID,  }) {
   const [reviews, setReviews] = useState([]);
   const [activeReview, setActiveReview] = useState();
   const [filter, setFilter] = useState();
@@ -42,26 +42,27 @@ function Reviews({activeTutorID}) {
     getReviews();
   }, [getReviews]);
 
-  const updateReview = (id) => {
-    const index = reviews.findIndex((review) => review.id === id);
-    const reviewAtIndex = reviews[index];
-    setActiveReview(reviewAtIndex);
-  }
+  // const updateReview = (id) => {
+  //   const index = reviews.findIndex((review) => review.id === id);
+  //   const reviewAtIndex = reviews[index];
+  //   setActiveReview(reviewAtIndex);
+  // }
 
-  const filteredReviews = reviews.filter((review) =>
-  filter ? review.id === filter : review
-  );
+  // const filteredReviews = reviews.filter((review) =>
+  // filter ? review.id === filter : review
+  // );
 
-  useEffect(() => {
-    setActiveReview(filteredReviews[0]);
-  }, [filter]);
+  // useEffect(() => {
+  //   setActiveReview(filteredReviews[0]);
+  // }, [filter]);
 
 
 
     return (
       <Card className='reviews'>
         {reviews.map((review) => (
-        <div className='card'>
+          
+        <div className='card' key={review.id}>
       <Card.Img variant="top" src={review.author_avatar} />
       <Card.Body>
         <Card.Title>{review.username}</Card.Title>

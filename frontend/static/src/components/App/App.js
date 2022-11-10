@@ -23,6 +23,7 @@ const INITIAL_STATE = {
 }
 
 
+
 function App() {
   const [superState, setSuperState] = useState(INITIAL_STATE);
 
@@ -112,7 +113,7 @@ function App() {
           />
          
          <Route 
-          path="dashboard"
+          path="dashboard-nav"
           element={<DashboardNav />}
           />
 
