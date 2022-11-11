@@ -22,25 +22,25 @@ import RadioGroupRating from './Rating';
 
 // }
 
-function Reviews({activeTutorID,  }) {
-  const [reviews, setReviews] = useState([]);
+function Reviews({ reviews }) {
+  // const [reviews, setReviews] = useState([]);
   const [activeReview, setActiveReview] = useState();
   const [filter, setFilter] = useState();
 
-  const getReviews = useCallback(async () => {
-    const response = await fetch(`/api/v1/profiles/${activeTutorID}/reviews/`).catch(handleError);
-    if (!response.ok) {
-      throw new Error("Network response was not OK");
-    } else {
-      const data = await response.json();
-      setReviews(data);
-      setActiveReview(data[0]);
-    }
-  }, [activeTutorID]);
+  // const getReviews = useCallback(async () => {
+  //   const response = await fetch(`/api/v1/profiles/${activeTutorID}/reviews/`).catch(handleError);
+  //   if (!response.ok) {
+  //     throw new Error("Network response was not OK");
+  //   } else {
+  //     const data = await response.json();
+  //     setReviews(data);
+  //     setActiveReview(data[0]);
+  //   }
+  // }, [activeTutorID]);
 
-  useEffect(() => {
-    getReviews();
-  }, [getReviews]);
+  // useEffect(() => {
+  //   getReviews();
+  // }, [getReviews]);
 
   // const updateReview = (id) => {
   //   const index = reviews.findIndex((review) => review.id === id);

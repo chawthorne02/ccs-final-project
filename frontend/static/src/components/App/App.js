@@ -4,7 +4,7 @@ import '../../styles/App.css';
 import { BrowserRouter as Router, Routes, Route, useNavigate, Link, BrowserRouter } from "react-router-dom";
 import LoginForm from '../LoginForm/LoginForm';
 import RegistrationForm from '../RegistrationForm/RegistrationForm';
-import WelcomePage from '../WelomePage/WelcomePage';
+import WelcomePage from '../WelcomePage/WelcomePage';
 import Layout from '../Layout/Layout';
 import StudentProfileForm from '../StudentProfileForm/StudentProfileForm';
 import TutorProfileForm from '../TutorProfileForm/TutorProfileForm';
@@ -13,6 +13,7 @@ import Tutors from '../Tutors/Tutors';
 import Reviews from '../Reviews/Reviews';
 import TutorReviews from '../Reviews/Rating';
 import DashboardNav from '../Dashboard/DashboardNav';
+import Flashcards from '../Flashcards/Flashcards';
 
 
 
@@ -127,9 +128,10 @@ function App() {
           />
            */}
 
-          
-        
-          
+          <Route 
+          path="flashcards"
+          element={<Flashcards />}
+          />
 
 
         </Routes>

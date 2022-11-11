@@ -1,5 +1,5 @@
 from django.urls import path, include
-from .views import TutorProfileListApiView, TutorProfileDetailApiView, StudentProfileListApiView, StudentProfileDetailApiView, TutorReviewsListAPIView, UserListApiView, ReferenceListApiView, ReferenceDetailApiView, ReviewListAPIView, LessonListApiView, LessonDetailApiView, ReviewDetailApiView
+from .views import TutorProfileListApiView, TutorProfileDetailApiView, StudentProfileListApiView, StudentProfileDetailApiView, TutorReviewsListAPIView, UserListApiView, ReferenceListApiView, ReferenceDetailApiView, ReviewListAPIView, LessonListApiView, LessonDetailApiView, ReviewDetailApiView, add_tutor
 
 app_name = 'accounts'
 
@@ -17,5 +17,6 @@ urlpatterns = [
     path('profiles/lessons/<int:pk>/', LessonDetailApiView.as_view(), name='lesson'),
     path('profiles/<int:tutorprofile>/reviews/', ReviewListAPIView.as_view(), name='review_list'), 
     path('profiles/<int:pk>/reviews/', ReviewDetailApiView.as_view(), name='review'),
+    path('profiles/tutors/add/<int:tutor_id>/', add_tutor),
 
 ]

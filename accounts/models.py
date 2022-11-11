@@ -13,6 +13,44 @@ class User(AbstractUser):
     is_tutor = models.BooleanField(default=False)
 
 
+class TutorProfile(models.Model):
+    ELEMENTARY = "Elementary"
+    MIDDLE_SCHOOL = "Middle"
+    HIGH_SCHOOL = "High"
+
+    MATH = "Math"
+    SCIENCE = "Science"
+    SOCIAL_STUDIES = "SS"
+    LANGUAGE_ARTS = "LA"
+
+    EDUCATION_CHOICES = [
+        (ELEMENTARY, "Elementary"),
+        (MIDDLE_SCHOOL, "Middle"),
+        (HIGH_SCHOOL, "High"),
+    ]
+
+    SUBJECT_CHOICES = [
+        (MATH, "Math"),
+        (SCIENCE, "Science"),
+        (SOCIAL_STUDIES, "SS"),
+        (LANGUAGE_ARTS, "LA"),
+    ]
+
+    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
+    avatar = models.ImageField(upload_to='profiles/', null=True)
+    first_name = models.CharField(max_length=225, null=True)
+    last_name = models.CharField(max_length=225, null=True)
+    email = models.CharField(max_length=225, null=True)
+    level_preferred = models.CharField(max_length=25, choices=EDUCATION_CHOICES, null=True)
+    subject = models.CharField(max_length=25, choices=SUBJECT_CHOICES, null=True)
+    bio = models.TextField(null=True)
+    location = models.CharField(max_length=225, null=True)
+    admin_verified = models.BooleanField(default=False)
+    is_certified = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.first_name + ' ' + self.last_name
+
     
 class StudentProfile(models.Model):
 
@@ -48,49 +86,10 @@ class StudentProfile(models.Model):
     grade_level = models.CharField(max_length=25, choices=EDUCATION_CHOICES, null=True)
     subject = models.CharField(max_length=25, choices=SUBJECT_CHOICES, null=True)
     bio = models.TextField(null=True)
-
-    
-
-
-class TutorProfile(models.Model):
-    ELEMENTARY = "Elementary"
-    MIDDLE_SCHOOL = "Middle"
-    HIGH_SCHOOL = "High"
-
-    MATH = "Math"
-    SCIENCE = "Science"
-    SOCIAL_STUDIES = "SS"
-    LANGUAGE_ARTS = "LA"
-
-    EDUCATION_CHOICES = [
-        (ELEMENTARY, "Elementary"),
-        (MIDDLE_SCHOOL, "Middle"),
-        (HIGH_SCHOOL, "High"),
-    ]
-
-    SUBJECT_CHOICES = [
-        (MATH, "Math"),
-        (SCIENCE, "Science"),
-        (SOCIAL_STUDIES, "SS"),
-        (LANGUAGE_ARTS, "LA"),
-    ]
-
-    user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
-    avatar = models.ImageField(upload_to='profiles/', null=True)
-    first_name = models.CharField(max_length=225, null=True)
-    last_name = models.CharField(max_length=225, null=True)
-    email = models.CharField(max_length=225, null=True)
-    level_preferred = models.CharField(max_length=25, choices=EDUCATION_CHOICES, null=True)
-    subject = models.CharField(max_length=25, choices=SUBJECT_CHOICES, null=True)
-    bio = models.TextField(null=True)
-    location = models.CharField(max_length=225, null=True)
-    admin_verified = models.BooleanField(default=False)
-    is_certified = models.BooleanField(default=False)
-    student = models.ForeignKey(StudentProfile, on_delete=models.CASCADE, blank=True, null=True)
+    tutor = models.ForeignKey(TutorProfile, on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
-        return self.first_name + ' ' + self.last_name
-
+        return self.user.username
 
 
 class Reference(models.Model):

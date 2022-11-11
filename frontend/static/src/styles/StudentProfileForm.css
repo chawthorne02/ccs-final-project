@@ -11,5 +11,6 @@
 }
 
 .student-form-image {
-  width: 360px;
+  width: 200px;
+  border-radius: 50%;
 }

@@ -60,7 +60,6 @@ function TutorProfileForm({ superState, setSuperState }) {
   };
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
     const formData = new FormData();
 
     for (const key in state) {
@@ -88,7 +87,7 @@ function TutorProfileForm({ superState, setSuperState }) {
         tutor_avatar: data.avatar,
         tutor_profile: data.id,
       });
-      navigate("tutor-dashboard");
+      navigate("dashboard");
     }
   };
         

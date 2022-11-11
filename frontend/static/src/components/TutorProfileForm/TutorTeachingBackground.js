@@ -41,6 +41,7 @@ function TutorProfessionalForm({ state, handleInput, nextPage, lastPage }) {
         <Form.Select
           required
           name="subject_type"
+          type="text"
           placeholder="Select a Subject..."
           value={state.subject}
           onChange={handleInput}

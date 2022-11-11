@@ -1,4 +1,6 @@
 from rest_framework import generics
+from rest_framework.response import Response
+from rest_framework.decorators import api_view
 from .models import TutorProfile, StudentProfile, Reference, Lesson, User, Review
 from .serializers import TutorProfileSerializer, StudentProfileSerializer, UserDetailsSerializer, ReferenceSerializer, LessonSerializer, ReviewSerializer
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated, IsAdminUser
@@ -111,3 +113,12 @@ class ReviewDetailApiView(generics.RetrieveUpdateDestroyAPIView):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
+@api_view(['PATCH'])
+def add_tutor(request, tutor_id):
+    student_profile = StudentProfile.objects.get(user=request.user)
+    tutor_profile = TutorProfile.objects.get(id=tutor_id)
+    student_profile.tutor = tutor_profile
+    student_profile.save()
+    serializer = StudentProfileSerializer(student_profile)
+    return Response(serializer.data)

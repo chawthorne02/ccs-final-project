@@ -3,15 +3,41 @@ import Button from 'react-bootstrap/Button';
 import TutorReviews from '../Reviews/TutorReviews';
 import Modal from 'react-bootstrap/Modal';
 import RadioGroupRating from '../Reviews/Rating';
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import Cookies from "js-cookie";
 import { handleError } from '../../errorhandling';
+import { useNavigate } from 'react-router-dom';
 
 
 
 
 
-function TutorDisplay({ activeTutor }) {
+
+
+function TutorDisplay({ activeTutor, addReview }) {
+
+  const [selectedTutor, setSelectedTutor] = useState([])
+
+  const navigate = useNavigate();
+
+  const handleSubmit = async () => {
+    const options = {
+        method: "PATCH",
+        headers: {
+          "X-CSRFToken": Cookies.get("csrftoken"),
+        },
+      };
+      const response = await fetch(`/api/v1/profiles/tutors/add/${activeTutor.id}/`, options).catch(handleError);
+      if (!response.ok) {
+        throw new Error("Network response was not OK");
+      } else {
+        const data = await response.json();
+        console.log(data);
+        setSelectedTutor(data);
+        navigate("/dashboard");
+      }
+
+}
  
 
     return (
@@ -28,8 +54,8 @@ function TutorDisplay({ activeTutor }) {
             </Card.Text>
           </Card.Body>
 
-          <Button className='tutor-select-btn'>Select</Button>
-          <TutorReviews activeTutor={activeTutor} />
+          <Button className='tutor-select-btn' onClick={handleSubmit}>Select</Button>
+          <TutorReviews addReview={addReview} />
          
           
         

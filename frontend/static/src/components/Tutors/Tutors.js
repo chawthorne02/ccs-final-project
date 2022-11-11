@@ -6,6 +6,7 @@ import TutorDisplay from "./TutorDisplay";
 import TutorList from "./TutorList";
 import '../../styles/Tutors.css';
 import Reviews from "../Reviews/Reviews";
+import Cookies from 'js-cookie';
 
 
 function Tutors() {
@@ -56,7 +57,7 @@ function Tutors() {
   ////////////////// GET REVIEWS
 
   const getReviews = useCallback(async () => {
-    const response = await fetch(`/api/v1/profiles/${activeTutor}/reviews/`).catch(handleError);
+    const response = await fetch(`/api/v1/profiles/${activeTutor.id}/reviews/`).catch(handleError);
     if (!response.ok) {
       throw new Error("Network response was not OK");
     } else {
@@ -67,8 +68,33 @@ function Tutors() {
   }, [activeTutor]);
 
   useEffect(() => {
-    getReviews();
-  }, [getReviews]);
+    if(activeTutor) {
+      getReviews();
+    }
+   
+  }, [getReviews, activeTutor]);
+
+  const addReview = async (review) => {
+
+    review.tutorprofile = activeTutor.id;
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": Cookies.get("csrftoken"),
+      },
+      body: JSON.stringify(review),
+    };
+    const response = await fetch(`/api/v1/profiles/tutors/${activeTutor.id}/reviews/`, options).catch(
+      handleError
+    );
+    if (!response.ok) {
+      throw new Error("Network response was not OK");
+    } else {
+      const data = await response.json();
+      setReviews([...reviews, review]);
+    }
+  }
 
 
 
@@ -113,7 +139,7 @@ function Tutors() {
         </Button>
       </section>
       <section className="main-display">
-        {activeTutor && <TutorDisplay activeTutor={activeTutor} />}
+        {activeTutor && <TutorDisplay activeTutor={activeTutor} addReview={addReview}/>}
         <aside className="sidebar">
           <TutorList 
             tutors={tutors} 
@@ -121,7 +147,7 @@ function Tutors() {
             filteredTutors={filteredTutors} />
         </aside>
       </section>
-      <Reviews activeTutorID={activeTutor?.id} />
+      <Reviews reviews={reviews} />
     </div>
   );
     

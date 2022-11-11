@@ -16,10 +16,9 @@ import '../../styles/TutorReview.css';
 
 
 
-function TutorReviews({ activeTutor, reviews, setReviews }) {
+function TutorReviews({ addReview }) {
     
   const [newReview, setNewReview] = useState ({
-        tutorprofile: activeTutor.id,
         text: "",
         rating: 0,
     });
@@ -31,17 +30,17 @@ function TutorReviews({ activeTutor, reviews, setReviews }) {
 
     
 
-    useEffect(() => {
-      const setActiveTutor = () => {
-        setNewReview({
-          tutorprofile: activeTutor.id,
-          text: "",
-          rating: 0,
-      })
-    }
+    // useEffect(() => {
+    //   const setActiveTutor = () => {
+    //     setNewReview({
+    //       tutorprofile: activeTutor.id,
+    //       text: "",
+    //       rating: 0,
+    //   })
+    // }
 
-      setActiveTutor();
-    }, [activeTutor]);
+    //   setActiveTutor();
+    // }, [activeTutor]);
 
 
     const handleInput = (e) => {
@@ -55,7 +54,6 @@ function TutorReviews({ activeTutor, reviews, setReviews }) {
   const handleClose = () => {
     setShow(false);
     setNewReview({
-        tutorprofile: activeTutor.id,
         text: "",
        rating: 0,
     });
@@ -70,24 +68,8 @@ function TutorReviews({ activeTutor, reviews, setReviews }) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const options = {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        "X-CSRFToken": Cookies.get("csrftoken"),
-      },
-      body: JSON.stringify(newReview),
-    };
-    const response = await fetch(`/api/v1/profiles/tutors/${activeTutor.id}/reviews/`, options).catch(
-      handleError
-    );
-    if (!response.ok) {
-      throw new Error("Network response was not OK");
-    } else {
-      const data = await response.json();
-      setReviews([...reviews, data]);
-      handleClose();
-    }
+    addReview(newReview);
+    handleClose();
   };
 
   

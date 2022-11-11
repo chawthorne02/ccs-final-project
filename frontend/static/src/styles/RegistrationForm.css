@@ -12,3 +12,8 @@
     background-color: #73e294;
 
 }
+
+.form-image {
+  width: 200px;
+  border-radius: 50%;
+}
