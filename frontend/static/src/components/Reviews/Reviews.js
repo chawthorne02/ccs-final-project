@@ -7,6 +7,7 @@ import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import Rating from '@mui/material/Rating';
 import RadioGroupRating from './Rating';
+import '../../styles/Reviews.css';
 
 
 
@@ -63,7 +64,7 @@ function Reviews({ reviews }) {
         {reviews.map((review) => (
           
         <div className='card' key={review.id}>
-      <Card.Img variant="top" src={review.author_avatar} />
+      <Card.Img className='review-img' variant="top" src={review.author_avatar} />
       <Card.Body>
         <Card.Title>{review.username}</Card.Title>
         <Card.Text>

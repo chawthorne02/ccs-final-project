@@ -41,3 +41,15 @@
 .carousel-img {
   opacity: 30%;
 }
+
+@media (max-width: 768px) {
+  
+  .welcome-create-account {
+    width: max-content;
+  }
+
+  .welcome-login {
+    width: max-content;
+  }
+
+}

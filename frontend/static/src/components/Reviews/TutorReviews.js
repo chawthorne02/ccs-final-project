@@ -107,7 +107,7 @@ function TutorReviews({ addReview }) {
          
 
             </Modal>
-            <Button onClick={handleShow}>Leave a Review</Button>
+            <Button className='leave-button' onClick={handleShow}>Leave a Review</Button>
         </div>
     )
 }

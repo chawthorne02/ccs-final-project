@@ -64,3 +64,27 @@
   .tutor-select-btn {
     background-color: #73e294;
   }
+
+  /* MEDIA QUERIES */
+
+  @media (max-width: 768px) {
+    .main-display {
+      flex-direction: column;
+    }
+
+    .highlight-tutor {
+      width: 100%;
+    }
+
+    .tutor-list {
+      width: max-content;
+      margin: 0px 0px 0px 0px;
+      padding: 0px 0px 0px 0px;
+    }
+
+    .sort-buttons {
+      flex-direction: column;
+      gap: 0px;
+    }
+
+  }
