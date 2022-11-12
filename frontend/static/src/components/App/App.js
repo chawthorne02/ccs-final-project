@@ -14,6 +14,7 @@ import Reviews from '../Reviews/Reviews';
 import TutorReviews from '../Reviews/Rating';
 import DashboardNav from '../Dashboard/DashboardNav';
 import Flashcards from '../Flashcards/Flashcards';
+import Dashboard from '../Dashboard/Dashboard';
 
 
 
@@ -114,8 +115,8 @@ function App() {
           />
          
          <Route 
-          path="dashboard-nav"
-          element={<DashboardNav />}
+          path="dashboard"
+          element={<Dashboard />}
           />
 
 

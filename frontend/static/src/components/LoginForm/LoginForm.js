@@ -46,7 +46,7 @@ const [user, setUser] = useState({
       Cookies.set("Authorization", `Token ${data.key}`);
       console.log('are you firing');
       setSuperState({ ...superState, auth: true, staff: data.is_staff });
-      navigate("/dashboard-nav");
+      navigate("/dashboard");
     }
 
   };

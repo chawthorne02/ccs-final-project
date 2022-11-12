@@ -1,0 +1,30 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+
+.breadcrumb {
+    display: flex;
+    justify-content: center;
+    font-size: xx-large;
+}
+
+.breadcrumb-item > a {
+    text-decoration: none;
+    color: white;
+}
+
+.piechart-title {
+    text-align: center;
+    color: #f8f5f5;
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+}
+
+.piechart {
+    display: flex;
+    justify-content: center;
+}
+
+.dashboard-display {
+    display: flex;
+}
