@@ -1,4 +1,5 @@
 
+import { width } from '@mui/system';
 import React, { PureComponent } from 'react';
 import { PieChart, Pie, Tooltip, Cell, Legend } from 'recharts';
 
@@ -45,7 +46,7 @@ function Piechart() {
      return null;
   };
       return (
-        <PieChart width={830} height={400}>
+        <PieChart width={250} height={550}>
       <Pie
          data={pieData}
          color="#000000"

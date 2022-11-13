@@ -27,7 +27,7 @@ return (
     //    </div>
 
     <div className="col main pt-5 mt-3">
-        
+         <DashboardSidebar />
         {/* <nav className='dashboard-nav'>
         <ol className="breadcrumb">
             <li className="breadcrumb-item"><a href="/">Home</a></li>
@@ -37,7 +37,7 @@ return (
         </ol>
         </nav> */}
         <div className='dashboard-display'>
-            <DashboardSidebar />
+           
             <div className='piechart-display'>
                 <h3 className='piechart-title'>View Students Progress:</h3>
                 <div className='piechart'><Piechart /></div>

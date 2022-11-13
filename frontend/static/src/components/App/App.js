@@ -12,9 +12,9 @@ import TutorDashboard from '../TutorDashboard/TutorDashboard';
 import Tutors from '../Tutors/Tutors';
 import Reviews from '../Reviews/Reviews';
 import TutorReviews from '../Reviews/Rating';
-import DashboardNav from '../Dashboard/DashboardNav';
 import Flashcards from '../Flashcards/Flashcards';
 import Dashboard from '../Dashboard/Dashboard';
+import Notes from '../Notes/Notes';
 
 
 
@@ -119,6 +119,10 @@ function App() {
           element={<Dashboard />}
           />
 
+          <Route 
+          path="notes"
+          element={<Notes />}
+          />
 
           </Route>
 

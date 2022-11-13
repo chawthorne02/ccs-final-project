@@ -36,7 +36,7 @@ function Notes({ state }) {
       ));
 
 return(
-   <div className="notes-list">{notesList}</div>
+   <div className="notes-list">hey</div>
 )
 }
 
