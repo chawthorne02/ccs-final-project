@@ -1,6 +1,10 @@
 import { Card } from "@mui/material";
 import { useState, useCallback, useEffect } from "react";
 import { handleError } from "../../errorhandling";
+import Form from 'react-bootstrap/Form';
+import '../../styles/Notes.css';
+import Button from "react-bootstrap/Button";
+
 
 
 
@@ -36,7 +40,38 @@ function Notes({ state }) {
       ));
 
 return(
-   <div className="notes-list">hey</div>
+   <div className="notes-list">
+    <Form className="notes-display">
+      <h2 className="notes-title">Leave Notes</h2>
+      <Form.Group className="mb-3" controlId="subject-type">
+        <Form.Label className="form-label">Select your student</Form.Label>
+        <Form.Select
+          required
+          name="subject_type"
+          type="text"
+          placeholder="Select a Student..."
+        >
+          <option>Select a Student</option>
+          <option value="Tiara">Tiara</option>
+          <option value="Duke">Duke</option>
+          <option value="Bubba">Bubba</option>
+          <option value="Amy">Amy</option>
+          <option value="Bill">Bill</option>
+        </Form.Select>
+
+      </Form.Group>
+      <Form.Group className="mb-3" controlId="">
+        <Form.Label className="form-label">Notes</Form.Label>
+        <Form.Control as="textarea" rows={5} placeholder="Leave notes for student..."/>
+      </Form.Group>
+
+      <Button variant="primary" className="notes-submit-btn">Submit</Button>
+
+    </Form>
+    
+
+   </div>
+
 )
 }
 

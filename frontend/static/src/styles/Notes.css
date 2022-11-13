@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+
+.notes-display {
+    margin-top: 20px;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.notes-title {
+    color: #f8f5f5;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;  
+}
+
+.form-label {
+    color: #f8f5f5;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400
+}
