@@ -46,7 +46,7 @@ function Piechart() {
      return null;
   };
       return (
-        <PieChart width={250} height={550}>
+        <PieChart width={650} height={750}>
       <Pie
          data={pieData}
          color="#000000"
@@ -54,7 +54,7 @@ function Piechart() {
          nameKey="name"
          cx="50%"
          cy="50%"
-         outerRadius={120}
+         outerRadius={300}
          fill="#8884d8"
       >
          {pieData.map((entry, index) => (
