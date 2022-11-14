@@ -23,19 +23,19 @@ function WelcomePage() {
         // </div>
         // </Container>
       <motion.main
-      initial={{opacity: 0}}
-      animate={{opacity: 1}}
-      exit={{opacity: 0}}
+      initial={{width: 0}}
+      animate={{width: "100%"}}
+      exit={{x: window.innerWidth, transition: { duration: 0.4}}}
       >
-        <Carousel fade>
+        <Carousel fade className='carousel'>
         <Carousel.Item>
           <img
             className="d-block w-100 carousel-img"
             src={welcomepic}
             alt="First slide"
           />
-          <Carousel.Caption>
-          <h3 className="welcome-page-text">Better Minds Tutoring</h3>
+          <Carousel.Caption className= "d-flex h-100 align-items-center justify-content-center" >
+          <h1 className="welcome-page-text">Better Minds Tutoring</h1>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -44,8 +44,8 @@ function WelcomePage() {
             src={welcomepic2}
             alt="Second slide"
           />
-          <Carousel.Caption>
-          <h3 className='welcome-page-text'>Where you can discover, Learn and Succeed</h3>
+          <Carousel.Caption className= "d-flex h-100 align-items-center justify-content-center">
+          <h1 className='welcome-page-text'>Where you can discover, Learn and Succeed</h1>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
@@ -54,16 +54,16 @@ function WelcomePage() {
             src={welcomepic3}
             alt="Third slide"
           />
-          <Carousel.Caption>
-          <h3 className='welcome-page-text'>Take Your Learing to New heights</h3>
+          <Carousel.Caption className= "d-flex h-100 align-items-center justify-content-center">
+          <h1 className='welcome-page-text'>Take Your Learing to New heights</h1>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>
 
-      <div className='welcome-buttons'>
+      {/* <div className='welcome-buttons'>
           <Button className="welcome-create-account btn-hover" href="/register">Create Account</Button>
            <Button className="welcome-login btn-hover" href="/login">Login</Button>
-       </div>
+       </div> */}
 
 
 

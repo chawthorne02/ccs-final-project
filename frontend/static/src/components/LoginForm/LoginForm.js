@@ -54,9 +54,9 @@ const [user, setUser] = useState({
 
   return (
     <motion.div
-    initial={{opacity: 0}}
-      animate={{opacity: 1}}
-      exit={{opacity: 0}}
+    initial={{width: 0}}
+      animate={{width: "100%"}}
+      exit={{x: window.innerWidth, transition: { duration: 0.4}}}
     >
     <Form onSubmit={handleSubmit} className='login-form'>
       <h1>Login</h1>

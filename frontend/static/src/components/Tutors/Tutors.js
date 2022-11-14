@@ -101,9 +101,9 @@ function Tutors() {
 
     return (
         <motion.div
-        initial={{opacity: 0}}
-      animate={{opacity: 1}}
-      exit={{opacity: 0}} 
+        initial={{width: 0}}
+        animate={{width: "100%"}}
+        exit={{x: window.innerWidth, transition: { duration: 0.4}}}
         className="tutor-display"
         >
              <h1 className="tutor-select-header">Tutor Selection</h1>

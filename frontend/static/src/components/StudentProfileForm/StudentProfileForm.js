@@ -76,9 +76,9 @@ function StudentProfileForm() {
 
         <motion.section 
         className="student-form-display"
-        initial={{opacity: 0}}
-      animate={{opacity: 1}}
-      exit={{opacity: 0}}
+        initial={{width: 0}}
+      animate={{width: "100%"}}
+      exit={{x: window.innerWidth, transition: { duration: 0.4}}}
         >
       <Form className="student-form-box" onSubmit={handleSubmit}>
         <div className="student-form-head">

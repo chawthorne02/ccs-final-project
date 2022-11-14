@@ -30,9 +30,9 @@ return (
 
     <motion.div 
     className="col main pt-5 mt-3"
-        initial={{opacity: 0}}
-      animate={{opacity: 1}}
-      exit={{opacity: 0}}
+    initial={{width: 0}}
+    animate={{width: "100%"}}
+    exit={{x: window.innerWidth, transition: { duration: 0.4}}}
     >
          <DashboardSidebar />
         

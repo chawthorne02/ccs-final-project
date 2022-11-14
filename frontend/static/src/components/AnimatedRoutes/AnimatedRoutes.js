@@ -16,7 +16,11 @@ import Dashboard from '../Dashboard/Dashboard';
 import Notes from '../Notes/Notes';
 import Lessons from '../Lessons/Lessons';
 import { AnimatePresence } from 'framer-motion';
-
+import Tiarapage from "../Studentpages/Tiarapage";
+import Dukepage from "../Studentpages/Dukepage";
+import Amypage from "../Studentpages/Amypage";
+import Billpage from "../Studentpages/Billpage";
+import Bubbapage from "../Studentpages/Bubbapage";
 
 const INITIAL_STATE = {
     auth: !!Cookies.get('Authorization'),
@@ -105,7 +109,7 @@ function AnimatedRoutes() {
          
          <Route 
           path="dashboard"
-          element={<Dashboard />}
+          element={<Dashboard logoutUser={logoutUser}/>}
 
           
 
@@ -121,6 +125,32 @@ function AnimatedRoutes() {
           path="lessons"
           element={<Lessons />}
           />
+          
+          <Route 
+          path="dashboard/student-page-tiara"
+          element={<Tiarapage />}
+          />
+
+          <Route 
+          path="dashboard/student-page-duke"
+          element={<Dukepage />}
+          />
+
+        <Route 
+          path="dashboard/student-page-amy"
+          element={<Amypage />}
+          />
+
+        <Route 
+          path="dashboard/student-page-bill"
+          element={<Billpage />}
+          />
+
+        <Route 
+          path="dashboard/student-page-bubba"
+          element={<Bubbapage />}
+          />
+
 
           </Route>
 

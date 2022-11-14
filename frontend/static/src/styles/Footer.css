@@ -11,6 +11,9 @@
     margin-top: 30px;
     padding-top: 10px; 
     padding-bottom: 10px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
 }
 
 .end-tag {

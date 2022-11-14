@@ -90,9 +90,9 @@ function RegistrationForm({ superState, setSuperState }) {
   
     return (
       <motion.div
-      initial={{opacity: 0}}
-      animate={{opacity: 1}}
-      exit={{opacity: 0}}
+      initial={{width: 0}}
+      animate={{width: "100%"}}
+      exit={{x: window.innerWidth, transition: { duration: 0.4}}}
       >
       <Form onSubmit={checkSamePass} className="register-form">
         <h1>Register</h1>

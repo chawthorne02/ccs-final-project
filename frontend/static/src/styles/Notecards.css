@@ -85,6 +85,8 @@
     font-weight: 400;
     margin-left: 15px;
     margin-right: 15px;
+    margin-top: 50%;
+    font-size: x-large;
 }
 
 .note-card-front {

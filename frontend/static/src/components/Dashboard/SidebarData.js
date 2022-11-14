@@ -26,7 +26,7 @@ export const SidebarData = [
   },
   {
     title: 'Logout',
-    path: '/logout',
+    path: '/login',
     icon: <BiLogOut />,
     cName: 'nav-text'
   }
