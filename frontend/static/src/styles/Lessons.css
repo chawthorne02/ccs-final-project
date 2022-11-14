@@ -1,0 +1,31 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+
+.table-header {
+    color: #f8f5f5;
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 600;
+  font-size: x-large;
+}
+
+tr {
+    color: #f8f5f5;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 600;
+    font-size: x-large;
+  }
+
+td > a {
+    text-decoration: none;
+    color: #f8f5f5;
+}
+
+td {
+    color: #f8f5f5; 
+}
+
+.first-row {
+    color: #f8f5f5; 
+}

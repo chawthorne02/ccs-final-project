@@ -4,7 +4,7 @@ import { handleError } from "../../errorhandling";
 import Form from 'react-bootstrap/Form';
 import '../../styles/Notes.css';
 import Button from "react-bootstrap/Button";
-
+import NoteCards from "./Notecards";
 
 
 
@@ -69,8 +69,11 @@ return(
 
     </Form>
     
-
+    
+   
+    <NoteCards/>
    </div>
+   
 
 )
 }

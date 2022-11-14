@@ -12,7 +12,7 @@ export const SidebarData = [
     cName: 'nav-text'
   },
   {
-    title: 'Notes',
+    title: 'Notes/Students',
     path: '/notes',
     icon: <IoIcons.IoIosPaper />,
     cName: 'nav-text'
@@ -21,18 +21,6 @@ export const SidebarData = [
     title: 'Lessons',
     path: '/lessons',
     icon: <MdAssignment />,
-    cName: 'nav-text'
-  },
-  {
-    title: 'Students',
-    path: '/students',
-    icon: <IoIcons.IoMdPeople />,
-    cName: 'nav-text'
-  },
-  {
-    title: 'Messages',
-    path: '/messages',
-    icon: <FaIcons.FaEnvelopeOpenText />,
     cName: 'nav-text'
   },
   {

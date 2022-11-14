@@ -15,6 +15,7 @@ import TutorReviews from '../Reviews/Rating';
 import Flashcards from '../Flashcards/Flashcards';
 import Dashboard from '../Dashboard/Dashboard';
 import Notes from '../Notes/Notes';
+import Lessons from '../Lessons/Lessons';
 
 
 
@@ -117,11 +118,20 @@ function App() {
          <Route 
           path="dashboard"
           element={<Dashboard />}
+
+          
+
+
           />
 
           <Route 
           path="notes"
           element={<Notes />}
+          />
+
+          <Route 
+          path="lessons"
+          element={<Lessons />}
           />
 
           </Route>

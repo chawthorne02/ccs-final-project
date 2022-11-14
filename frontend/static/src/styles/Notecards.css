@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+
+
+.flipcard {
+    top: 50%;
+    height: 400px;
+    width: 300px;
+    transform: translate(-50%, -50%);
+    margin-top: 18%;
+    left: 10%;
+    border: solid 1px #ffffff;
+    border-radius: 17px;
+}
+
+.flip-card-front, .flip-card-back {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #73e294;
+
+    transition: 0.5s;
+    border-radius: 1rem;
+    backface-visibility: hidden;
+}
+
+.flip-card-front {
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+.flip-card-back {
+    transform: rotateX(180deg);
+    color: #ffffff;
+    text-align: center;
+}
+
+.flipcard:hover .flip-card-front {
+    transform: rotateX(-180deg);
+}
+
+.flipcard:hover .flip-card-back {
+    transform: rotateX(0deg);
+}
+
+.flip-card-back h2 {
+    margin: 60% auto 35% auto;
+    font-size: 26px;
+}
+
+.flip-card-back h2 span {
+    font-size: 20px;
+}
+
+.flip-card-back li:not(:last-child) {
+    margin-right: 5px;
+}
+
+.flip-card-back a {
+    height: 30px;
+    width: 30px;
+    padding: 5px 5px;
+    border-radius: 4px;
+    line-height: 20px;
+}
+
+.flip-card-back a:hover {
+    color: #000000;
+    background-color: #ffffff;
+}
+
+.note-card-title {
+    color: #f8f5f5;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+}
+
+.note-card-text {
+    color: #f8f5f5;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    margin-left: 15px;
+    margin-right: 15px;
+}
+
+.note-card-front {
+    color: #f8f5f5;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 50%;
+}
+
+.flip-notecards {
+    display: flex;
+    margin-left: 19%;
+    margin-right: 26px;
+    margin-top: 40px;
+    
+}
