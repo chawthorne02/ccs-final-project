@@ -8,6 +8,8 @@ import TutorPersonalForm from './TutorPersonalForm';
 import TutorProfessionalForm from './TutorTeachingBackground';
 import TutorReferenceForm from './TutorReferences';
 import '../../styles/TutorProfileForm.css';
+import { motion } from 'framer-motion';
+
 
 
 const INITIAL_TUTOR_PROFILE_STATE = {
@@ -134,7 +136,12 @@ function TutorProfileForm({ superState, setSuperState }) {
         
 
     return (
-        <section className="tutor-form-display">
+        <motion.section 
+        className="tutor-form-display"
+        initial={{opacity: 0}}
+        animate={{opacity: 1}}
+        exit={{opacity: 0}}
+        >
       <div className="tutor-form-box">
         <div className="tutor-form-head">
           <h1>Tutor Profile Creation Page</h1>
@@ -142,7 +149,7 @@ function TutorProfileForm({ superState, setSuperState }) {
         <ProgressBar className='progressBar' animated now={page * (100 / 3)} />
         <div>{tutorCredentials()}</div>
       </div>
-    </section>
+    </motion.section>
     )
 
 

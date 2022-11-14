@@ -1,12 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
 body {
-  background-color: #AA96DA;
+  background-color: #55429d;
 }
 
 
 nav {
-  background-color: #73e294;
+  background-color: #009a2e;
   color: #f8f5f5;
   font-family: 'Oswald';
   font-style: normal;
@@ -19,7 +19,7 @@ nav {
 }
 
 .nav-link {
-  background-color: #73e294;
+  background-color: #009a2e;
   color: #f8f5f5;
   font-weight: 400;
 }
@@ -29,8 +29,7 @@ nav {
 }
 
 .App {
-  background-color: #AA96DA;
-  height: 100vh;
+  background-color: #55429d; 
 }
 
 h1 {

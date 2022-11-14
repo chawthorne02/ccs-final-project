@@ -2,6 +2,8 @@ import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import { NavLink, useNavigate } from "react-router-dom";
+import '../../styles/Header.css';
+
 
 
 
@@ -19,7 +21,9 @@ function Header({ superState, logoutUser }) {
         <Navbar className="navbar" expand="lg">
           <Container>
             <div id="navbar-links">
-                <h2>Better Minds Tutoring</h2>
+                <h2 className="app-title">
+                  <a href="/">Better Minds Tutoring</a>
+                </h2>
               <Nav className="me-auto">
                 {!superState.auth && (
                   <>

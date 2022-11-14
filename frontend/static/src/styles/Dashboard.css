@@ -25,7 +25,23 @@
     justify-content: center;
 }
 
-.dashboard-display {
+/* .dashboard-display {
     display: flex;
     justify-content: center;
+} */
+
+.students-display {
+    display: flex;
+    margin-top: 18%;
+    margin-left: 18%;
+    flex-wrap: wrap;
+}
+
+h2 {
+    text-align: center;
+    color: #f8f5f5;
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
+  
 }

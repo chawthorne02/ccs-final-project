@@ -7,6 +7,7 @@ import TutorList from "./TutorList";
 import '../../styles/Tutors.css';
 import Reviews from "../Reviews/Reviews";
 import Cookies from 'js-cookie';
+import { motion } from 'framer-motion';
 
 
 function Tutors() {
@@ -99,7 +100,12 @@ function Tutors() {
 
 
     return (
-        <div className="tutor-display">
+        <motion.div
+        initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}} 
+        className="tutor-display"
+        >
              <h1 className="tutor-select-header">Tutor Selection</h1>
       <section className="sort-buttons">
         <Button 
@@ -148,7 +154,7 @@ function Tutors() {
         </aside>
       </section>
       <Reviews reviews={reviews} />
-    </div>
+    </motion.div>
   );
     
 

@@ -6,6 +6,7 @@ import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import { handleError } from '../../errorhandling';
 import defaultprofilepicture from "../../images/defaultprofilepicture.jpeg";
+import { motion } from 'framer-motion';
 
 
 
@@ -73,7 +74,12 @@ function StudentProfileForm() {
 
     return (
 
-        <section className="student-form-display">
+        <motion.section 
+        className="student-form-display"
+        initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}
+        >
       <Form className="student-form-box" onSubmit={handleSubmit}>
         <div className="student-form-head">
           <h1>Create a Student Profile</h1>
@@ -116,7 +122,7 @@ function StudentProfileForm() {
           </Button>
         </div>
       </Form>
-    </section>
+    </motion.section>
 
     );
 

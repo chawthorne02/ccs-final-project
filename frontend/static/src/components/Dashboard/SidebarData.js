@@ -3,6 +3,7 @@ import * as FaIcons from 'react-icons/fa';
 import * as AiIcons from 'react-icons/ai';
 import * as IoIcons from 'react-icons/io';
 import { MdAssignment } from "react-icons/md";
+import { BiLogOut } from "react-icons/bi";
 
 export const SidebarData = [
   {
@@ -26,7 +27,7 @@ export const SidebarData = [
   {
     title: 'Logout',
     path: '/logout',
-    icon: <IoIcons.IoMdHelpCircle />,
+    icon: <BiLogOut />,
     cName: 'nav-text'
   }
 ];
