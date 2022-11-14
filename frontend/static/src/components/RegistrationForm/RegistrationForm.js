@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 import '../../styles/RegistrationForm.css';
+import { motion } from 'framer-motion';
 
 
 
@@ -88,6 +89,11 @@ function RegistrationForm({ superState, setSuperState }) {
     }
   
     return (
+      <motion.div
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}
+      >
       <Form onSubmit={checkSamePass} className="register-form">
         <h1>Register</h1>
         <Form.Group className="mb-3" controlId="username">
@@ -159,6 +165,7 @@ function RegistrationForm({ superState, setSuperState }) {
 
 
       </Form>
+      </motion.div>
     );
   }
 

@@ -4,6 +4,7 @@ import Form from "react-bootstrap/Form";
 import Cookies from "js-cookie";
 import { useNavigate, Link } from "react-router-dom";
 import '../../styles/LoginForm.css';
+import { motion } from 'framer-motion';
 
 
 
@@ -52,6 +53,11 @@ const [user, setUser] = useState({
   };
 
   return (
+    <motion.div
+    initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}
+    >
     <Form onSubmit={handleSubmit} className='login-form'>
       <h1>Login</h1>
       <Form.Group className="mb-3" controlId="username">
@@ -84,7 +90,9 @@ const [user, setUser] = useState({
 
 
     </Form>
+    </motion.div>
   )
+
 
 
 

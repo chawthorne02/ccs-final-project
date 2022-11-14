@@ -6,7 +6,7 @@ import Nav from 'react-bootstrap/Nav';
 import Button from 'react-bootstrap/Button';
 import '../../styles/WelcomePage.css';
 import Carousel from 'react-bootstrap/Carousel';
-
+import { motion } from 'framer-motion';
 
 
 
@@ -22,7 +22,11 @@ function WelcomePage() {
         //   <Button className="welcome-login btn-hover" href="/login">Login</Button>
         // </div>
         // </Container>
-      <main>
+      <motion.main
+      initial={{opacity: 0}}
+      animate={{opacity: 1}}
+      exit={{opacity: 0}}
+      >
         <Carousel fade>
         <Carousel.Item>
           <img
@@ -61,7 +65,9 @@ function WelcomePage() {
            <Button className="welcome-login btn-hover" href="/login">Login</Button>
        </div>
 
-      </main>
+
+
+      </motion.main>
 
 
 

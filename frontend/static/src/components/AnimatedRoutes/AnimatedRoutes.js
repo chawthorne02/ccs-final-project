@@ -1,7 +1,6 @@
+import { BrowserRouter as Router, Routes, Route, useNavigate, Link, BrowserRouter, Switch, useLocation } from "react-router-dom";
 import { useEffect, useState } from 'react';
 import Cookies from "js-cookie";
-import '../../styles/App.css';
-import { BrowserRouter as Router, Routes, Route, useNavigate, Link, BrowserRouter, Switch, useLocation } from "react-router-dom";
 import LoginForm from '../LoginForm/LoginForm';
 import RegistrationForm from '../RegistrationForm/RegistrationForm';
 import WelcomePage from '../WelcomePage/WelcomePage';
@@ -17,22 +16,21 @@ import Dashboard from '../Dashboard/Dashboard';
 import Notes from '../Notes/Notes';
 import Lessons from '../Lessons/Lessons';
 import { AnimatePresence } from 'framer-motion';
-import AnimatedRoutes from '../AnimatedRoutes/AnimatedRoutes';
-
-
 
 
 const INITIAL_STATE = {
-  auth: !!Cookies.get('Authorization'),
-  staff: false,
-}
+    auth: !!Cookies.get('Authorization'),
+    staff: false,
+  }
 
 
 
-function App() {
-  const [superState, setSuperState] = useState(INITIAL_STATE);
+function AnimatedRoutes() {
+    const location = useLocation();
 
-  
+    const [superState, setSuperState] = useState(INITIAL_STATE);
+
+
 
   const newState = JSON.parse(window.localStorage.getItem("superState"));
 
@@ -44,19 +42,6 @@ function App() {
   const handleError = (err) => {
     console.warn(err);
   };
-
-  // useEffect(() => {
-  //   const checkAuth = async () => {
-  //     const response = await fetch("/dj-rest-auth/user/");
-  //     if (!response.ok) {
-  //       console.log("this", response.ok);
-  //       setSuperState(INITIAL_STATE);
-  //     } else {
-  //       setSuperState(newState);
-  //     }
-  //   };
-  //   checkAuth();
-  // }, []);
 
   const logoutUser = async (e) => {
     e.preventDefault();
@@ -79,15 +64,9 @@ function App() {
 
   }
 
-  return (
-    <div className="App">
-      <BrowserRouter>
-
-
-        <AnimatedRoutes />
-
-
-        {/* <Routes>
+    return (
+        <AnimatePresence>
+        <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Layout superState={superState} setSuperState={setSuperState} logoutUser={logoutUser} />}>
             <Route index element={<WelcomePage />} />
             <Route
@@ -146,11 +125,11 @@ function App() {
           </Route>
 
           
-          <Route
+          {/* <Route
             path="login"
             element={<LoginForm superState={superState} setSuperState={setSuperState} />}
           />
-          
+           */}
 
           <Route 
           path="flashcards"
@@ -158,10 +137,9 @@ function App() {
           />
 
 
-        </Routes> */}
-      </BrowserRouter>
-    </div>
-  );
+        </Routes>
+    </AnimatePresence>
+    )
 }
 
-export default App;
+export default AnimatedRoutes;
