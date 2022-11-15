@@ -82,7 +82,11 @@ const [user, setUser] = useState({
         />
       </Form.Group>
 
-      <Button variant="primary" type="submit">
+      <Button 
+      variant="primary" 
+      type="submit"
+      className="login-submit"
+      >
         Login
       </Button>
       <p className="no-account">No account? Click <Link to={"/register"}>here</Link> to register.</p>

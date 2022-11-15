@@ -159,7 +159,11 @@ function RegistrationForm({ superState, setSuperState }) {
             checked={user.is_tutor} 
             onChange={handleCheckbox} />
         </Form.Group>
-        <Button variant="primary" type="submit" className="register-submit-btn">
+        <Button 
+        variant="primary" 
+        type="submit" 
+        className="register-submit-btn"
+        >
           Submit
         </Button>
 

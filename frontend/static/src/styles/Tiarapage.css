@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+
+
+.tiara-page-title {
+    color: #f8f5f5;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400
+}
+
+.tiara-main {
+    margin-left: 10%;
+    margin-right: 10%;
+}

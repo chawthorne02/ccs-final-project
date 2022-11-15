@@ -64,11 +64,13 @@
     padding: 5px 5px;
     border-radius: 4px;
     line-height: 20px;
+    text-decoration: none;
+    color: #f8f5f5;
 }
 
 .flip-card-back a:hover {
-    color: #000000;
-    background-color: #ffffff;
+    color: #fff;
+    background-color: #55429d;
 }
 
 .note-card-title {
@@ -87,6 +89,7 @@
     margin-right: 15px;
     margin-top: 50%;
     font-size: x-large;
+    
 }
 
 .note-card-front {
