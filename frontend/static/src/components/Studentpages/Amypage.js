@@ -2,6 +2,8 @@ import { motion } from 'framer-motion';
 import Form from 'react-bootstrap/Form';
 import '../../styles/Amypage.css';
 import Button from 'react-bootstrap/Button';
+import Table from 'react-bootstrap/Table';
+import ProgressBar from 'react-bootstrap/ProgressBar';
 
 
 
@@ -58,6 +60,54 @@ function Amypage () {
 
         <Button variant="primary">Assign</Button>
       </Form>
+
+      <h2 className='amy-progress'>Amy's Progression</h2>
+      <ProgressBar animated now={20}/>
+      <Table bordered className='progress-table'>
+      <thead>
+        <tr>
+          <th>Lesson</th>
+          <th>Marked as Completed:</th>
+          <th>In Progress:</th>
+          <th>Not started</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Monday's lesson</td>
+          <td><input type="checkbox"></input></td>
+          <td><input type="checkbox"></input></td>
+          <td><input type="checkbox"></input></td>
+        </tr>
+        <tr>
+          <td>Tuesday's Lesson</td>
+          <td><input type="checkbox"></input></td>
+          <td><input type="checkbox"></input></td>
+          <td><input type="checkbox"></input></td>
+        </tr>
+        <tr>
+          <td>Wednesday's Lesson</td>
+          <td><input type="checkbox"></input></td>
+          <td><input type="checkbox"></input></td>
+          <td><input type="checkbox"></input></td>
+        </tr>
+        <tr>
+          <td>Thursday's Lesson</td>
+          <td><input type="checkbox"></input></td>
+          <td><input type="checkbox"></input></td>
+          <td><input type="checkbox"></input></td>
+        </tr>
+        <tr>
+          <td>Friday's Assessment</td>
+          <td><input type="checkbox"></input></td>
+          <td><input type="checkbox"></input></td>
+          <td><input type="checkbox"></input></td>
+        </tr>
+      </tbody>
+    </Table>
+
+
+
         </motion.main>
     )
 }

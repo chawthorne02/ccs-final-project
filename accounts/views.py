@@ -50,11 +50,19 @@ class TutorReviewsListAPIView(generics.ListCreateAPIView):
 
 class StudentProfileListApiView(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticated,) # Make sure student user is Authenticated
-    queryset = StudentProfile.objects.all() # Retrieve ALL objects from the Student table
+    # queryset = StudentProfile.objects.all() # Retrieve ALL objects from the Student table
     serializer_class = StudentProfileSerializer
 
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+        serializer.save(tutor=self.request.user)
+
+    def get_queryset(self):
+        # tutorprofile = self.kwargs['tutorprofile']
+        tutorprofile = TutorProfile.objects.get(user=self.request.user)
+        return StudentProfile.objects.filter(tutor=tutorprofile)
+
+    
+
 
 
 class StudentProfileDetailApiView(generics.RetrieveUpdateDestroyAPIView):
@@ -74,7 +82,7 @@ class ReferenceListApiView(generics.ListCreateAPIView):
 
 class ReferenceDetailApiView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsUserOrReadOnly,)
-    queryset = queryset = Reference.objects.all()
+    queryset = Reference.objects.all()
     serializer_class = ReferenceSerializer
 
     def perform_create(self, serializer):
@@ -83,17 +91,17 @@ class ReferenceDetailApiView(generics.RetrieveUpdateDestroyAPIView):
 
 class LessonListApiView(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticated, IsAdminUser,)
-    queryset = Reference.objects.all()
+    queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
 
 
 class LessonDetailApiView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsUserOrReadOnly,)
-    queryset = queryset = Reference.objects.all()
+    queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
 
     def perform_create(self, serializer):
-        serializer.save(user=self.request.user)
+        serializer.save(tutor=self.request.user)
 
 class ReviewListAPIView(generics.ListCreateAPIView):
     serializer_class = ReviewSerializer
@@ -108,7 +116,7 @@ class ReviewListAPIView(generics.ListCreateAPIView):
 
 class ReviewDetailApiView(generics.RetrieveUpdateDestroyAPIView):
     permission_classes = (IsUserOrReadOnly,)
-    queryset = queryset = Review.objects.all()
+    queryset = Review.objects.all()
     serializer_class = ReviewSerializer
 
     def perform_create(self, serializer):

@@ -1,9 +1,14 @@
 import Table from 'react-bootstrap/Table';
 import '../../styles/Lessons.css';
+import { useState } from 'react';
 
 
 function Lessons() {
-
+  const [lessons, setLessons] = useState({
+    title: "",
+    notes: "",
+    day_assigned: "",
+  })
 
 
 

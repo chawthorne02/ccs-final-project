@@ -47,7 +47,12 @@ const [user, setUser] = useState({
       Cookies.set("Authorization", `Token ${data.key}`);
       console.log('are you firing');
       setSuperState({ ...superState, auth: true, staff: data.is_staff });
-      navigate("/dashboard");
+      // navigate("/dashboard");
+      if (data.is_student === true) {
+        navigate("/student-dashboard")
+    } else if (data.is_tutor === true) {
+        navigate("/dashboard")
+    }
     }
 
   };

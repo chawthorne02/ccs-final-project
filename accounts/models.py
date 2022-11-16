@@ -107,11 +107,37 @@ class Reference(models.Model):
 
 
 class Lesson(models.Model):
+
+    MONDAY = "Monday"
+    TUESDAY = "Tuesday"
+    WEDNESDAY = "Wednesday"
+    THURSDAY = "Thursday"
+    FRIDAY = "Friday"
+
+    DAY_CHOICES = [
+        (MONDAY, "Monday"),
+        (TUESDAY, "Tuesday"),
+        (WEDNESDAY, "Wednesday"),
+        (THURSDAY, "Thursday"),
+        (FRIDAY, "Friday"),
+    ]
+
+    COMPLETED = "Completed"
+    IN_PROGRESS = "in_progress"
+    NOT_STARTED = "not_started"
+
+    PROGRESSION_CHOICES = [
+        (COMPLETED, "Completed"),
+        (IN_PROGRESS, "in_progress"),
+        (NOT_STARTED, "not_started"),
+    ]
+
     title = models.CharField(max_length=50, null=True)
     notes = models.TextField(null=True)
     tutor = models.ForeignKey(TutorProfile, on_delete=models.CASCADE, blank=True)
     student = models.ForeignKey(StudentProfile, on_delete=models.CASCADE, blank=True)
-
+    day_assigned = models.CharField(max_length=25, choices=DAY_CHOICES, null=True)
+    progress = models.CharField(max_length=25, choices=PROGRESSION_CHOICES, null=True)
 
 class Review(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True)

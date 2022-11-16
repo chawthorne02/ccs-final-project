@@ -5,5 +5,4 @@ class IsUserOrReadOnly(permissions.BasePermission): #  A base class from which a
         if request.method in permissions.SAFE_METHODS:
             return True
 
-        if request.user == obj.user or request.user.is_superuser:
-            return True
+        return request.user == obj.tutor or request.user.is_superuser

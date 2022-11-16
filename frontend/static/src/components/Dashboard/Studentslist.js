@@ -1,9 +1,25 @@
 import Table from 'react-bootstrap/Table';
-
+import { handleError } from '../../errorhandling';
+import { useState, useCallback, useEffect } from 'react';
 
 
 function StudentsList() {
+    const [students, setStudents] = useState([]);
 
+const getStudents = useCallback (async () => {
+    const response = await fetch(`/api/v1/profiles/students/`).catch(handleError);
+    if (!response.ok) {
+      throw new Error("Network response was not OK");
+    } else {
+      const data = await response.json();
+      setStudents(data);
+    }
+  }, [])
+
+
+  useEffect(() => {
+    getStudents();
+  }, []);
 
 
 
@@ -65,7 +81,7 @@ function StudentsList() {
             <div className="flipcard">
 
         <div className="flip-card-front">
-        <h2 className='note-card-front'>Bill's Site</h2>
+        <h2 className='note-card-front'>Bill's Page</h2>
         </div>
         <div className="flip-card-back">
             <p className='note-card-title'> </p>
@@ -81,7 +97,7 @@ function StudentsList() {
             <div className="flipcard">
 
         <div className="flip-card-front">
-        <h2 className='note-card-front'>Bubba's Site</h2>
+        <h2 className='note-card-front'>Bubba's Page</h2>
         </div>
         <div className="flip-card-back">
             <p className='note-card-title'> </p>

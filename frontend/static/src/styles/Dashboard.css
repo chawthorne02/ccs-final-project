@@ -33,8 +33,9 @@
 .students-display {
     display: flex;
     margin-top: 18%;
-    margin-left: 18%;
+    margin-left: 28%;
     flex-wrap: wrap;
+    gap: 10px;
 }
 
 h2 {
