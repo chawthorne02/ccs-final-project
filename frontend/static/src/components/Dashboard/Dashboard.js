@@ -9,22 +9,22 @@ import { useState, useCallback, useEffect } from 'react';
 
 
 function Dashboard() {
-const [students, setStudents] = useState([]);
-
-const getStudents = useCallback (async () => {
-    const response = await fetch(`/api/v1/profiles/students/`).catch(handleError);
-    if (!response.ok) {
-      throw new Error("Network response was not OK");
-    } else {
-      const data = await response.json();
-      setStudents(data);
-    }
-  }, )
 
 
-  useEffect(() => {
-    getStudents();
-  }, [getStudents]);
+// const getStudents = useCallback (async () => {
+//     const response = await fetch(`/api/v1/profiles/students/`).catch(handleError);
+//     if (!response.ok) {
+//       throw new Error("Network response was not OK");
+//     } else {
+//       const data = await response.json();
+//       setStudents(data);
+//     }
+//   }, )
+
+
+//   useEffect(() => {
+//     getStudents();
+//   }, [getStudents]);
 
 return (
 

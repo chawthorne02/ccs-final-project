@@ -17,7 +17,9 @@ nav {
 
 #navbar-links {
   display: flex;
-  gap: 40px
+  gap: 40px;
+  align-items: center;
+ 
 }
 
 .nav-link {
@@ -32,6 +34,7 @@ nav {
 
 .App {
   background-color: #55429d; 
+  padding-bottom: 5.5rem;
 }
 
 h1 {

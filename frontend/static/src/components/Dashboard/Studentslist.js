@@ -25,26 +25,28 @@ const getStudents = useCallback (async () => {
 
 
     return (
+        
       <main className='students-display'>
-        <section>
-        </section>
-
-        <section>
+        {students.map((student) => (
+            <section key={student.id}>
             <div className="flipcard">
 
         <div className="flip-card-front">
-        <h2 className='note-card-front'>Tiara's Page</h2>
+            <img src={student.avatar} className="student-card-img"/>
+        <h2 className='note-card-front'>{student.first_name} {student.last_name}</h2>
+        <h6 className='subtitle'>From {student.location}</h6>
         </div>
         <div className="flip-card-back">
             <p className='note-card-title'> </p>
             <p className='note-card-text'>
-                <a href="student-page-tiara">View Tiara's Student Site</a>
+                <a href={student.id}>View {student.first_name}'s Student Site</a>
             </p>
         </div>
     </div>   
         </section>
+        ))}
     
-        <section>
+        {/* <section>
            
             <div className="flipcard">
 
@@ -106,7 +108,7 @@ const getStudents = useCallback (async () => {
             </p>
         </div>
     </div>   
-        </section>
+        </section> */}
 
 
      </main>

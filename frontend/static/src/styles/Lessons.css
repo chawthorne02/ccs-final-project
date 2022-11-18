@@ -30,3 +30,8 @@ td {
     color: #f8f5f5; 
 }
 
+.lesson-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+

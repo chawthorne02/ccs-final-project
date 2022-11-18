@@ -7,7 +7,6 @@ import WelcomePage from '../WelcomePage/WelcomePage';
 import Layout from '../Layout/Layout';
 import StudentProfileForm from '../StudentProfileForm/StudentProfileForm';
 import TutorProfileForm from '../TutorProfileForm/TutorProfileForm';
-import TutorDashboard from '../TutorDashboard/TutorDashboard';
 import Tutors from '../Tutors/Tutors';
 import Reviews from '../Reviews/Reviews';
 import TutorReviews from '../Reviews/Rating';
@@ -21,6 +20,7 @@ import Dukepage from "../Studentpages/Dukepage";
 import Amypage from "../Studentpages/Amypage";
 import Billpage from "../Studentpages/Billpage";
 import Bubbapage from "../Studentpages/Bubbapage";
+import StudentDashboard from "../StudentDashboard/StudentDashboard";
 
 const INITIAL_STATE = {
     auth: !!Cookies.get('Authorization'),
@@ -83,49 +83,66 @@ function AnimatedRoutes() {
           />
           <Route 
           path="student-profile-creation"
-          element={<StudentProfileForm />}
+          element={<StudentProfileForm superState={superState}/>}
           />
 
           <Route 
           path="tutor-profile-creation"
-          element={<TutorProfileForm />}
+          element={<TutorProfileForm superState={superState}/>}
           />
 
-          <Route 
+          {/* <Route 
           path="tutor-dashboard"
-          element={<TutorDashboard />}
-          />
+          element={<TutorDashboard superState={superState}/>}
+          /> */}
 
           <Route 
           path="tutor-selection"
-          element={<Tutors />}
+          element={<Tutors superState={superState}/>}
           />
 
 
           <Route 
           path="tutor/reviews"
-          element={<Reviews />}
+          element={<Reviews superState={superState}/>}
           />
          
          <Route 
           path="dashboard"
           element={<Dashboard logoutUser={logoutUser}/>}
-
-          
-
-
           />
 
           <Route 
           path="notes"
-          element={<Notes />}
-          />
-
-          <Route 
-          path="lessons"
-          element={<Lessons />}
+          element={<Notes superState={superState}/>}
           />
           
+          <Route 
+          path="student-dashboard"
+          element ={<StudentDashboard logoutUser={logoutUser}/>}
+          />
+          
+
+          <Route 
+          path="/:id"
+          element={<Lessons superState={superState}/>}
+          />
+
+
+          </Route>
+
+          
+          {/* <Route
+            path="login"
+            element={<LoginForm superState={superState} setSuperState={setSuperState} />}
+          />
+           */}
+
+          {/* <Route 
+          path="flashcards"
+          element={<Flashcards />}
+          />
+
           <Route 
           path="dashboard/student-page-tiara"
           element={<Tiarapage />}
@@ -149,22 +166,7 @@ function AnimatedRoutes() {
         <Route 
           path="dashboard/student-page-bubba"
           element={<Bubbapage />}
-          />
-
-
-          </Route>
-
-          
-          {/* <Route
-            path="login"
-            element={<LoginForm superState={superState} setSuperState={setSuperState} />}
-          />
-           */}
-
-          <Route 
-          path="flashcards"
-          element={<Flashcards />}
-          />
+          /> */}
 
 
         </Routes>

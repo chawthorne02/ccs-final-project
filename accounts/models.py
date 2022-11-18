@@ -132,7 +132,7 @@ class Lesson(models.Model):
         (NOT_STARTED, "not_started"),
     ]
 
-    title = models.CharField(max_length=50, null=True)
+    title = models.CharField(max_length=500, null=True)
     notes = models.TextField(null=True)
     tutor = models.ForeignKey(TutorProfile, on_delete=models.CASCADE, blank=True)
     student = models.ForeignKey(StudentProfile, on_delete=models.CASCADE, blank=True)

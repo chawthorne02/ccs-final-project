@@ -8,7 +8,6 @@ import WelcomePage from '../WelcomePage/WelcomePage';
 import Layout from '../Layout/Layout';
 import StudentProfileForm from '../StudentProfileForm/StudentProfileForm';
 import TutorProfileForm from '../TutorProfileForm/TutorProfileForm';
-import TutorDashboard from '../TutorDashboard/TutorDashboard';
 import Tutors from '../Tutors/Tutors';
 import Reviews from '../Reviews/Reviews';
 import TutorReviews from '../Reviews/Rating';

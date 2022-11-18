@@ -5,6 +5,7 @@ from .models import TutorProfile, StudentProfile, Reference, Lesson, User, Revie
 from .serializers import TutorProfileSerializer, StudentProfileSerializer, UserDetailsSerializer, ReferenceSerializer, LessonSerializer, ReviewSerializer
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated, IsAdminUser
 from .permissions import IsUserOrReadOnly
+from django.shortcuts import get_object_or_404
 
 # class ProfileListAPIView(generics.ListCreateAPIView):
 #     queryset = models.Profile.objects.all()
@@ -95,13 +96,18 @@ class LessonListApiView(generics.ListCreateAPIView):
     serializer_class = LessonSerializer
 
 
-class LessonDetailApiView(generics.RetrieveUpdateDestroyAPIView):
+class LessonDetailApiView(generics.ListCreateAPIView):
     permission_classes = (IsUserOrReadOnly,)
     queryset = Lesson.objects.all()
     serializer_class = LessonSerializer
 
     def perform_create(self, serializer):
-        serializer.save(tutor=self.request.user)
+        tutor_profile = TutorProfile.objects.get(user=self.request.user)
+        serializer.save(tutor=tutor_profile)
+
+        
+    def get_queryset(self):
+        pass
 
 class ReviewListAPIView(generics.ListCreateAPIView):
     serializer_class = ReviewSerializer
@@ -121,6 +127,31 @@ class ReviewDetailApiView(generics.RetrieveUpdateDestroyAPIView):
 
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
+
+
+class StudentLessonListAPIView(generics.ListAPIView):
+    # queryset = StudentProfile.objects.all()
+    serializer_class = LessonSerializer
+    def get_queryset(self):
+        student_profile = StudentProfile.objects.get(user=self.request.user)
+        return Lesson.objects.filter(student=student_profile)
+
+    # def perform_create(self, serializer):
+    #     student_profile_id = self.kwargs['student']
+    #     student_profile = StudentProfile.objects.get(id=student_profile_id)
+    #     tutorprofile = TutorProfile.objects.get(user=self.request.user)
+    #     serializer.save(tutor=tutorprofile, student=student_profile)
+
+class StudentLessonDetailAPIView(generics.RetrieveUpdateAPIView):
+    permission_classes = (IsUserOrReadOnly,)
+    serializer_class = LessonSerializer
+    queryset = Lesson.objects.all()
+
+    # def get_object(self, ):
+    #     lesson = self.kwargs['lesson']
+    #     return get_object_or_404(Lesson, id=lesson)
+ 
+
 
 @api_view(['PATCH'])
 def add_tutor(request, tutor_id):
