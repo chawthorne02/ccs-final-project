@@ -151,6 +151,21 @@ class StudentLessonDetailAPIView(generics.RetrieveUpdateAPIView):
     #     lesson = self.kwargs['lesson']
     #     return get_object_or_404(Lesson, id=lesson)
  
+class AllStudentLessonListAPIView(generics.RetrieveDestroyAPIView):
+    permission_classes = (IsUserOrReadOnly,)
+    serializer_class = LessonSerializer
+    queryset = Lesson.objects.all()
+
+
+class StudentLessonsTutorView(generics.ListCreateAPIView):
+    serializer_class = LessonSerializer 
+
+    def get_queryset(self):
+
+        # import pdb 
+        # pdb.set_trace()
+        student_profile = StudentProfile.objects.get(id=self.kwargs['pk'])
+        return Lesson.objects.filter(student=student_profile)
 
 
 @api_view(['PATCH'])

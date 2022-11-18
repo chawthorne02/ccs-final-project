@@ -72,6 +72,8 @@ class ReferenceSerializer(serializers.ModelSerializer):
 
 
 class LessonSerializer(serializers.ModelSerializer):
+    student_first_name = serializers.ReadOnlyField(source="student.first_name")
+    student_last_name = serializers.ReadOnlyField(source="student.last_name")
     class Meta:
         model = Lesson
         fields = '__all__'

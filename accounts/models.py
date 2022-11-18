@@ -136,8 +136,8 @@ class Lesson(models.Model):
     notes = models.TextField(null=True)
     tutor = models.ForeignKey(TutorProfile, on_delete=models.CASCADE, blank=True)
     student = models.ForeignKey(StudentProfile, on_delete=models.CASCADE, blank=True)
-    day_assigned = models.CharField(max_length=25, choices=DAY_CHOICES, null=True)
-    progress = models.CharField(max_length=25, choices=PROGRESSION_CHOICES, null=True)
+    day_assigned = models.CharField(max_length=25, choices=DAY_CHOICES, null=True, blank=True)
+    progress = models.CharField(max_length=25, choices=PROGRESSION_CHOICES, default="not_started")
 
 class Review(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True)
