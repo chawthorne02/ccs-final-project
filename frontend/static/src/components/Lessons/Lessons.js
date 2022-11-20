@@ -9,6 +9,7 @@ import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 import ProgressBar from 'react-bootstrap/ProgressBar';
 
+
 const INITIAL_LESSON_STATE = {
   title: "",
   notes: "",
@@ -21,7 +22,9 @@ const INITIAL_LESSON_STATE = {
 function Lessons() {
   const [lesson, setLesson] = useState(INITIAL_LESSON_STATE);
   const [lessons, setLessons] = useState([]);
-  const [studentProfile, setStudentProfile] = useState(null)
+  const [studentProfile, setStudentProfile] = useState(null);
+  const [editItem, setEditItem] = useState(null);
+  const [editText, setEditText] = useState(null);
   
   // const formData = new FormData(); ONLY USED FOR IMAGES!!!
 
@@ -98,6 +101,65 @@ const handleSubmit = async (e) => {
 }
   
 
+
+const handleSave = async (e) => {
+  const id = editItem;
+  const text = editText;
+
+
+  if(editText === null) {
+    setEditItem(null);
+    return;
+  } 
+  const options = {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      "X-CSRFToken": Cookies.get("csrftoken"),
+    },
+      body: JSON.stringify({notes: text})
+  };
+  const response = await fetch(`/api/v1/student/lessons/${id}/`, options).catch(handleError);
+  if (!response.ok) {
+    throw new Error("Network response was not OK");
+  } else {
+    const data = await response.json();
+    setEditText(null);
+  }
+ 
+  setEditItem(null);
+  const updatedLessons = [...lessons];
+  const index = updatedLessons.findIndex(item => item.id === id);
+  updatedLessons[index].notes = editText;
+
+}
+
+  const handleDelete = async (id) => {
+
+    const options = {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": Cookies.get("csrftoken"),
+      },
+        
+    };
+    const response = await fetch(`/api/v1/student/lessons/${id}/`, options).catch(handleError);
+    if (!response.ok) {
+      throw new Error("Network response was not OK");
+    } else {
+      
+      
+    }
+   
+    
+    const updatedLessons = [...lessons];
+    const index = updatedLessons.findIndex(item => item.id === id);
+    updatedLessons.splice(index, 1);
+    setLessons(updatedLessons);
+  }
+
+  
 
 
 
@@ -182,10 +244,14 @@ const handleSubmit = async (e) => {
     <tbody>
       <tr>
         <td>{lesson.title}</td>
-        <td><p>{lesson.notes}</p>
+        <td><p contentEditable={editItem === lesson.id} onInput={(e) => setEditText(e.target.innerText)}>{lesson.notes}</p>
         <span className='edit-delete-buttons'>
-        <Button variant="warning" className="edit-button">Edit Lesson</Button>
-        <Button variant="danger">Delete Lesson</Button>
+          {editItem === lesson.id ? (
+               <Button variant="warning" className="edit-button" onClick={handleSave}>Save changes</Button>
+          ): (
+            <Button variant="warning" className="edit-button" onClick={() => setEditItem(lesson.id)}>Edit Lesson</Button>
+          )}
+        <Button variant="danger" onClick={() => handleDelete(lesson.id)}>Delete Lesson</Button>
         </span>
         </td>
       </tr>

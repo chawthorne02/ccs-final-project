@@ -142,8 +142,8 @@ class StudentLessonListAPIView(generics.ListAPIView):
     #     tutorprofile = TutorProfile.objects.get(user=self.request.user)
     #     serializer.save(tutor=tutorprofile, student=student_profile)
 
-class StudentLessonDetailAPIView(generics.RetrieveUpdateAPIView):
-    permission_classes = (IsUserOrReadOnly,)
+class StudentLessonDetailAPIView(generics.RetrieveUpdateDestroyAPIView):
+    # permission_classes = (IsUserOrReadOnly,)
     serializer_class = LessonSerializer
     queryset = Lesson.objects.all()
 

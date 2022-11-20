@@ -39,7 +39,7 @@ const getStudents = useCallback (async () => {
         <div className="flip-card-back">
             <p className='note-card-title'> </p>
             <p className='note-card-text'>
-                <a href={student.id}>View {student.first_name}'s Student Site</a>
+                <a href={`/${student.id}`}>View {student.first_name}'s Student Site</a>
             </p>
         </div>
     </div>   
