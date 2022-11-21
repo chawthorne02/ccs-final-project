@@ -136,7 +136,7 @@ function StudentDashboard() {
                   id={index}
                   value={checked}
                   onChange={() => handleChange(lesson)}
-                  onClick={() => progression()}
+                  // onClick={() => progression()}
                 ></input>}
                 
               </td>

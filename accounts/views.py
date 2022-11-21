@@ -185,8 +185,8 @@ def add_tutor(request, tutor_id):
     sg = sendgrid.SendGridAPIClient(api_key=os.environ.get('SENDGRID_API_KEY'))
     from_email = Email("betterminds257@gmail.com")
     to_email = To("chawthorne02@gmail.com")
-    subject = "Sending with SendGrid is Fun"
-    content = Content("text/plain", "and easy to do anywhere, even with Python")
+    subject = "A new student has requested to work with you!"
+    content = Content("text/plain", "Confirm that they can join your classroom!")
     mail = Mail(from_email, to_email, subject, content)
     response = sg.client.mail.send.post(request_body=mail.get())
 

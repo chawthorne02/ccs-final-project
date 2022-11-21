@@ -34,7 +34,7 @@ function TutorDisplay({ activeTutor, addReview }) {
         const data = await response.json();
         console.log(data);
         setSelectedTutor(data);
-        navigate("/dashboard");
+        navigate("/student-dashboard");
       }
 
 }
