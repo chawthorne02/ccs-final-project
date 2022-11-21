@@ -53,3 +53,9 @@ h1 {
   min-height: 100vh;
   position: relative;
 }
+
+@media (max-width: 604px) {
+  .nav-link {
+      visibility: hidden;
+  }
+}

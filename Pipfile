@@ -15,6 +15,7 @@ django-allauth = "~=0.51.0"
 pillow = "~=9.3.0"
 django-phonenumber-field = "~=7.0.0"
 django-phonenumbers = "*"
+sendgrid = "*"
 
 [dev-packages]
 

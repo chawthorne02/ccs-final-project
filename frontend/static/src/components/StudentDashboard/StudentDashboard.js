@@ -88,6 +88,13 @@ function StudentDashboard() {
 
   // }
 
+  function progression(){
+    console.log("working")
+    let progress = 0;
+
+     
+  };
+
   const updateChecked = (progress) => {
     if (progress === "Completed") {
       setChecked(true);
@@ -101,7 +108,7 @@ function StudentDashboard() {
       animate={{ width: "80%" }}
       exit={{ x: window.innerWidth, transition: { duration: 0.4 } }}
     >
-      <DashboardSidebar />
+      
       <h2 className="student-dash-title">My Lessons</h2>
       <ProgressBar animated now={20} />
       {studentLesson.map((lesson, index) => (
@@ -122,11 +129,14 @@ function StudentDashboard() {
                 {lesson.progress === "Completed" ? "This lesson has been completed" : "Check to complete lesson"}
                 {lesson.progress === "Completed" ? null : <input
                   type="checkbox"
+                  className="lesson-checkbox"
                   // handleCheckbox={() => handleCheckbox(lesson.id)}
                   name="completed"
+                  progress={20}
                   id={index}
                   value={checked}
                   onChange={() => handleChange(lesson)}
+                  onClick={() => progression()}
                 ></input>}
                 
               </td>

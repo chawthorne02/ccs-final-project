@@ -37,7 +37,7 @@ class TutorProfile(models.Model):
     ]
 
     user = models.OneToOneField(User, on_delete=models.CASCADE, blank=True, null=True)
-    avatar = models.ImageField(upload_to='profiles/', null=True)
+    avatar = models.ImageField(upload_to='profiles/', null=True, max_length=500)
     first_name = models.CharField(max_length=225, null=True)
     last_name = models.CharField(max_length=225, null=True)
     email = models.CharField(max_length=225, null=True)

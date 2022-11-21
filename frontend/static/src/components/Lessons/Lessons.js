@@ -176,7 +176,7 @@ const handleSave = async (e) => {
       >
 
     <Form className='student-site-form'>
-      <h2>Assign a lesson to {`${studentProfile?.first_name} ${studentProfile?.last_name}`} </h2>
+      <h2>Assign a lesson to {`${studentProfile?.first_name} ${studentProfile?.last_name}`}</h2>
     <Form.Group className="mb-4" id="form-lessons">
       <Form.Label>
         <h4>Lesson Title</h4>

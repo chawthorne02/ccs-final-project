@@ -20,6 +20,7 @@ function Header({ superState, logoutUser }) {
     return (
       <>
         <Navbar className="navbar" expand="lg">
+          <DashboardSidebar />
           <Container>
             <div id="navbar-links">
                 <h2 className="app-title">

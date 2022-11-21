@@ -6,6 +6,11 @@ from .serializers import TutorProfileSerializer, StudentProfileSerializer, UserD
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated, IsAdminUser
 from .permissions import IsUserOrReadOnly
 from django.shortcuts import get_object_or_404
+from django.core.mail import send_mail
+import sendgrid
+import os
+from sendgrid.helpers.mail import *
+
 
 # class ProfileListAPIView(generics.ListCreateAPIView):
 #     queryset = models.Profile.objects.all()
@@ -53,14 +58,15 @@ class StudentProfileListApiView(generics.ListCreateAPIView):
     permission_classes = (IsAuthenticated,) # Make sure student user is Authenticated
     # queryset = StudentProfile.objects.all() # Retrieve ALL objects from the Student table
     serializer_class = StudentProfileSerializer
+    queryset = StudentProfile.objects.all()
 
     def perform_create(self, serializer):
-        serializer.save(tutor=self.request.user)
+        serializer.save(user=self.request.user)
 
-    def get_queryset(self):
-        # tutorprofile = self.kwargs['tutorprofile']
-        tutorprofile = TutorProfile.objects.get(user=self.request.user)
-        return StudentProfile.objects.filter(tutor=tutorprofile)
+    # def get_queryset(self):
+    #     # tutorprofile = self.kwargs['tutorprofile']
+    #     tutorprofile = TutorProfile.objects.get(user=self.request.user)
+    #     return StudentProfile.objects.filter(tutor=tutorprofile)
 
     
 
@@ -175,4 +181,17 @@ def add_tutor(request, tutor_id):
     student_profile.tutor = tutor_profile
     student_profile.save()
     serializer = StudentProfileSerializer(student_profile)
+
+    sg = sendgrid.SendGridAPIClient(api_key=os.environ.get('SENDGRID_API_KEY'))
+    from_email = Email("betterminds257@gmail.com")
+    to_email = To("chawthorne02@gmail.com")
+    subject = "Sending with SendGrid is Fun"
+    content = Content("text/plain", "and easy to do anywhere, even with Python")
+    mail = Mail(from_email, to_email, subject, content)
+    response = sg.client.mail.send.post(request_body=mail.get())
+
     return Response(serializer.data)
+
+
+# Sendgrid email servi
+# send_mail('Hello', 'Welcome new Student', 'betterminds257@gmail.com', ['eric.m.warren1@gmail.com'], fail_silently=False)

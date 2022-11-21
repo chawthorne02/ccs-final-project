@@ -36,11 +36,11 @@ return (
     animate={{width: "100%"}}
     exit={{x: window.innerWidth, transition: { duration: 0.4}}}
     >
-         <DashboardSidebar />
+       
         
         <div className='dashboard-display'>
             <h2 className="student-pages-header">Student's Pages:</h2>
-            <section>
+            <section className='student-cards'>
                 <StudentsList />
             </section>
            

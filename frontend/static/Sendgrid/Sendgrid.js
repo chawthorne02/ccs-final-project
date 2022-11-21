@@ -1,13 +1,11 @@
 
-
-
 require('dotenv').config();
+
 
 const client = require('@sendgrid/mail')
 
-const API_KEY = process.env.SG_API_KEY
 
-client.setApiKey(API_KEY)
+client.setApiKey(process.env.SG_API_KEY)
 
 const message = {
     to: 'chawthorne02@gmail.com',
@@ -27,4 +25,4 @@ client
     console.error(error)
  })
 
- console.log(process.env.SG_API_KEY)
+ 
