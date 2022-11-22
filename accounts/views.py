@@ -186,7 +186,7 @@ def add_tutor(request, tutor_id):
     from_email = Email("betterminds257@gmail.com")
     to_email = To("chawthorne02@gmail.com")
     subject = "A new student has requested to work with you!"
-    content = Content("text/plain", "Confirm that they can join your classroom!")
+    content = Content("text/plain", "Check your dashboard page to see that they have joined!")
     mail = Mail(from_email, to_email, subject, content)
     response = sg.client.mail.send.post(request_body=mail.get())
 

@@ -1,6 +1,7 @@
 import Table from 'react-bootstrap/Table';
 import { handleError } from '../../errorhandling';
 import { useState, useCallback, useEffect } from 'react';
+import { Link } from "react-router-dom";
 
 
 function StudentsList() {
@@ -36,12 +37,14 @@ const getStudents = useCallback (async () => {
         <h2 className='note-card-front'>{student.first_name} {student.last_name}</h2>
         <h6 className='subtitle'>From {student.location}</h6>
         </div>
+        <Link to={`/${student.id}`}>
         <div className="flip-card-back">
             <p className='note-card-title'> </p>
             <p className='note-card-text'>
-                <a href={`/${student.id}`}>View {student.first_name}'s Student Site</a>
+                View {student.first_name}'s Site
             </p>
         </div>
+        </Link>
     </div>   
         </section>
         ))}
