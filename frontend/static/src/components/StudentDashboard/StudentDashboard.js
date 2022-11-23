@@ -10,11 +10,17 @@ import DashboardSidebar from "../Dashboard/DashboardSidebar";
 import { useParams } from "react-router-dom";
 import { BiBody } from "react-icons/bi";
 import Cookies from "js-cookie";
+import Modal from 'react-bootstrap/Modal';
 
 function StudentDashboard() {
   const [studentLesson, setStudentLesson] = useState([]);
   const [checkbox, setCheckBox] = useState(false);
   const [checked, setChecked] = useState(false);
+  const [show, setShow] = useState(false);
+
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
 
   const handleChange = async (lesson) => {
     let lessonStatus;
@@ -65,28 +71,7 @@ function StudentDashboard() {
     getStudentLesson();
   }, []);
 
-  // const handleCheckbox = async (id) => {
-  //   console.log("testing")
-
-  //   const options = {
-  //     method: "PATCH",
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //       "X-CSRFToken": Cookies.get("csrftoken"),
-  //     },
-  //       body: JSON.stringify(checkbox)
-  //   };
-  //   const response = await fetch(`/api/v1/student/lessons/${id}/`, options).catch(handleError);
-  //   if (!response.ok) {
-  //     throw new Error("Network response was not OK");
-  //   } else {
-  //     const data = await response.json();
-  //     console.log(data)
-  //     setCheckBox(data);
-
-  //   }
-
-  // }
+  
 
   function progression(){
     console.log("working")
@@ -138,14 +123,29 @@ function StudentDashboard() {
                   onChange={() => handleChange(lesson)}
                   // onClick={() => progression()}
                 ></input>}
-                
+                <Button className="question-button" onClick={handleShow}>Ask a Question</Button>
               </td>
             </tr>
           </tbody>
         </Table>
       ))}
 
-      <Form className="notes-display">
+      <Modal show={show} onHide={handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>Have a Question?</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>What is it?</Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={handleClose}>
+            Close
+          </Button>
+          <Button variant="primary" onClick={handleClose}>
+            Save Changes
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
+      {/* <Form className="notes-display">
         <h2 className="notes-title">Questions?</h2>
         <Form.Group className="mb-3" controlId="subject-type">
           <Form.Label className="form-label"></Form.Label>
@@ -176,7 +176,9 @@ function StudentDashboard() {
         <Button variant="primary" className="notes-submit-btn">
           Submit
         </Button>
-      </Form>
+      </Form> */}
+
+
     </motion.main>
   );
 }
@@ -211,3 +213,5 @@ export default StudentDashboard;
         <td><input type="checkbox"></input></td>
          */
 /* </tr> */
+
+
