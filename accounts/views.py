@@ -1,8 +1,8 @@
 from rest_framework import generics
 from rest_framework.response import Response
 from rest_framework.decorators import api_view
-from .models import TutorProfile, StudentProfile, Reference, Lesson, User, Review
-from .serializers import TutorProfileSerializer, StudentProfileSerializer, UserDetailsSerializer, ReferenceSerializer, LessonSerializer, ReviewSerializer
+from .models import TutorProfile, StudentProfile, Reference, Lesson, User, Review, Question
+from .serializers import TutorProfileSerializer, StudentProfileSerializer, UserDetailsSerializer, ReferenceSerializer, LessonSerializer, ReviewSerializer, QuestionSerializer
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, IsAuthenticated, IsAdminUser
 from .permissions import IsUserOrReadOnly
 from django.shortcuts import get_object_or_404
@@ -164,7 +164,7 @@ class AllStudentLessonListAPIView(generics.RetrieveDestroyAPIView):
 
 
 class StudentLessonsTutorView(generics.ListCreateAPIView):
-    serializer_class = LessonSerializer 
+    serializer_class = LessonSerializer
 
     def get_queryset(self):
 
@@ -172,6 +172,14 @@ class StudentLessonsTutorView(generics.ListCreateAPIView):
         # pdb.set_trace()
         student_profile = StudentProfile.objects.get(id=self.kwargs['pk'])
         return Lesson.objects.filter(student=student_profile)
+
+    
+
+
+class QuestionView(generics.ListCreateAPIView):
+    permission_classes = (IsAuthenticatedOrReadOnly,)
+    serializer_class = QuestionSerializer
+    queryset = Question.objects.all()
 
 
 @api_view(['PATCH'])

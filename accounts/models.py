@@ -153,8 +153,8 @@ class Question(models.Model):
     user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, blank=True)
     title = models.CharField(max_length=500, null=True)
     question = models.TextField()
-    tutorprofile = models.ForeignKey(TutorProfile, on_delete=models.CASCADE, blank=True)
-    studentprofile = models.ForeignKey(StudentProfile, on_delete=models.CASCADE, blank=True)
+    tutor = models.ForeignKey(TutorProfile, on_delete=models.CASCADE, blank=True)
+    student = models.ForeignKey(StudentProfile, on_delete=models.CASCADE, blank=True)
 
 
 

@@ -11,6 +11,9 @@ import { useParams } from "react-router-dom";
 import { BiBody } from "react-icons/bi";
 import Cookies from "js-cookie";
 import Modal from 'react-bootstrap/Modal';
+import { useRef } from 'react'
+import emailjs from '@emailjs/browser';
+
 
 function StudentDashboard() {
   const [studentLesson, setStudentLesson] = useState([]);
@@ -86,6 +89,35 @@ function StudentDashboard() {
     } else setChecked(false);
   };
 
+// EMAIL JS
+
+
+// const form = useRef();
+
+const sendEmail = (e) => {
+  e.preventDefault();
+
+
+emailjs.sendForm(
+  'service_dj2omhg', 
+  'template_5sj81jn', 
+   Form.current, 
+  '-5FuMIkA58NpIsBmE'
+  )
+      .then((result) => {
+          console.log(result.text);
+          console.log("message sent");
+      }, (error) => {
+          console.log(error.text);
+          
+      });
+      handleClose();
+  };
+
+
+
+
+
   return (
     <motion.main
       className="student-dash-main"
@@ -130,53 +162,54 @@ function StudentDashboard() {
         </Table>
       ))}
 
-      <Modal show={show} onHide={handleClose}>
-        <Modal.Header closeButton>
-          <Modal.Title>Have a Question?</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>What is it?</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
-      </Modal>
 
-      {/* <Form className="notes-display">
-        <h2 className="notes-title">Questions?</h2>
-        <Form.Group className="mb-3" controlId="subject-type">
-          <Form.Label className="form-label"></Form.Label>
-          <Form.Select
-            required
-            name="subject_type"
-            type="text"
-            placeholder="Select a Student..."
-          >
-            <option>Select a Day</option>
-            <option value="Monday">Monday</option>
-            <option value="Tuesday">Tuesday</option>
-            <option value="Wednesday">Wednesday</option>
-            <option value="Thursday">Thursday</option>
-            <option value="Friday">Friday</option>
-            <option value="gen-questions">General Questions</option>
-          </Form.Select>
-        </Form.Group>
-        <Form.Group className="mb-3" controlId="">
-          <Form.Label className="form-label">Notes</Form.Label>
-          <Form.Control
-            as="textarea"
-            rows={5}
-            placeholder="Questions, Comments, Concerns..."
-          />
-        </Form.Group>
 
-        <Button variant="primary" className="notes-submit-btn">
-          Submit
-        </Button>
-      </Form> */}
+
+          <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton className="question-modal">
+                    <Modal.Title className="question-modal-title">Got a Question?</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body className="question-modal">
+                    <Form className="question-form" ref={Form} onSubmit={sendEmail} >
+                      <Form.Group className="mb-3">
+                        <Form.Label>Email address</Form.Label>
+                        <Form.Control type="email" placeholder="Enter email" name="user_email" />
+                      </Form.Group>
+                      <Form.Group className="mb-3">
+                        <Form.Label>Name</Form.Label>
+                        <Form.Control type="name" name="user_name" placeholder="Enter name..." />
+                      </Form.Group>
+                      <Form.Group className="mb-3">
+                        <Form.Label>Subject</Form.Label>
+                        <Form.Control type="subject" name="subject" placeholder="Subject..." />
+                      </Form.Group>
+                      <Form.Group className="mb-3">
+                        <Form.Label>Message</Form.Label>
+                        <Form.Control as="textarea" name="message" placeholder="Leave your Question here..." rows={3}/>
+                      </Form.Group>
+                      </Form>
+                    </Modal.Body>
+                    
+                    <Modal.Footer className="question-modal">
+                        <Button className='review-submit' type="submit" value="Send"  onClick={sendEmail}>
+                            Send Message
+                        </Button>
+                        <Button className='close-button' onClick={handleClose}>Close</Button>
+                    </Modal.Footer>
+                  
+
+            </Modal>
+
+    {/* <form onSubmit={sendEmail}>
+      <label>Name</label>
+      <input type="text" name="user_name" />
+      <label>Email</label>
+      <input type="email" name="user_email" />
+      <label>Message</label>
+      <textarea name="message" />
+      <input type="submit" value="Send" />
+    </form> */}
+      
 
 
     </motion.main>
@@ -185,33 +218,5 @@ function StudentDashboard() {
 
 export default StudentDashboard;
 
-/* <tr>
-        <td>Tuesday's Lesson</td>
-        <td></td>
-        <td></td>
-        <td><input type="checkbox"></input></td>
-        
-      </tr>
-      <tr>
-        <td>Wednesday's Lesson</td>
-        <td></td>
-        <td></td>
-        <td><input type="checkbox"></input></td>
-        
-      </tr>
-      <tr>
-        <td>Thursday's Lesson</td>
-        <td></td>
-        <td></td>
-        <td><input type="checkbox"></input></td>
-        
-      </tr>
-      <tr>
-        <td>Friday's Assessment</td>
-        <td></td>
-        <td></td>
-        <td><input type="checkbox"></input></td>
-         */
-/* </tr> */
 
 

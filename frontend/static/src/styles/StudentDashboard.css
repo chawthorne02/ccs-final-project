@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+
+
 .student-dash-main {
     margin-left: 9%;
     margin-top : 2%;
@@ -9,6 +12,21 @@
 }
 
 .question-button {
-    margin-left: 25px;
+    margin-left: 7px;
     margin-top: 10%;
+}
+
+.question-text {
+    width: 100%;
+}
+
+.question-modal {
+    background-color: #55429d;
+}
+
+.question-modal-title {
+  color: #f8f5f5;
+  font-family: 'Oswald';
+  font-style: normal;
+  font-weight: 400;
 }
