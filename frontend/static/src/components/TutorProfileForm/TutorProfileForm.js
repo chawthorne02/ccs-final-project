@@ -19,7 +19,7 @@ const INITIAL_TUTOR_PROFILE_STATE = {
   location: "",
   bio: "",
   email: "",
-  subject: "",
+  subject_type: "",
   grade_level: "",
   position:"",
   company_name: "",

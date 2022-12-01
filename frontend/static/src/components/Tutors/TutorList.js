@@ -10,7 +10,7 @@ function TutorList({ updateDisplay, filteredTutors }) {
           <Card.Img className="aside-image" src={tutor.avatar} />
             <div className='tutor-text-list'>
             <Card.Title className="aside-title">Tutor</Card.Title>
-            <span>{tutor.first_name} {tutor.last_name}</span>
+            <span className='tutor-name'>{tutor.first_name} {tutor.last_name}</span>
             </div>
           </div>
         </Card>

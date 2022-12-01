@@ -55,7 +55,7 @@ function WelcomePage() {
             alt="Third slide"
           />
           <Carousel.Caption className= "d-flex h-100 align-items-center justify-content-center">
-          <h1 className='welcome-page-text'>Take Your Learing to New heights</h1>
+          <h1 className='welcome-page-text'>Take Your Learning to New heights</h1>
           </Carousel.Caption>
         </Carousel.Item>
       </Carousel>

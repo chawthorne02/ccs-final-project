@@ -3,6 +3,7 @@
  
  .progressBar {
     background-color: #73e294;
+    margin-top: 30px;
 }
 
 .tutor-form-display {
@@ -25,4 +26,16 @@
   font-family: 'Oswald';
   font-style: normal;
   font-weight: 400;
+}
+
+.email {
+    margin-top: 20px;
+}
+
+.grade-level {
+    margin-top: 50px;
+}
+
+.subject {
+    margin-top: 50px
 }

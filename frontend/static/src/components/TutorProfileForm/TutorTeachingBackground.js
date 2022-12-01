@@ -7,7 +7,7 @@ function TutorProfessionalForm({ state, handleInput, nextPage, lastPage }) {
       <div className="form-head">
         <h3>Professional Information</h3>
       </div>
-      <Form.Group className="mb-3" controlId="email">
+      <Form.Group className="mb-3 email">
         <Form.Label>Email</Form.Label>
         <Form.Control
           required
@@ -19,7 +19,7 @@ function TutorProfessionalForm({ state, handleInput, nextPage, lastPage }) {
         />
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="grade_level">
+      <Form.Group className="mb-3 grade-level" controlId="grade_level">
         <Form.Label>What grade level would you like to teach</Form.Label>
         <Form.Select
           required
@@ -36,14 +36,14 @@ function TutorProfessionalForm({ state, handleInput, nextPage, lastPage }) {
         </Form.Select>
       </Form.Group>
 
-      <Form.Group className="mb-3" controlId="subject-type">
+      <Form.Group className="mb-3 subject" controlId="subject-type">
         <Form.Label>What Subject would you like to Teach?</Form.Label>
         <Form.Select
           required
           name="subject_type"
           type="text"
           placeholder="Select a Subject..."
-          value={state.subject}
+          value={state.subject_type}
           onChange={handleInput}
         >
           <option>Select an Subject</option>
