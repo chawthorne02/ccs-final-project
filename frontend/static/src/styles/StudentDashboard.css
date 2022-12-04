@@ -8,12 +8,13 @@
 }
 
 .lesson-checkbox {
-    margin-left: 10%;
+    margin-left: 5%;
 }
 
 .question-button {
-    margin-left: 7px;
+    /* margin-left: 7px; */
     margin-top: 10%;
+    width: 100%;
 }
 
 .question-text {
