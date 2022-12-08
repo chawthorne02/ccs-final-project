@@ -15,3 +15,14 @@ Video walkthrough - https://www.loom.com/share/4074ed81e442409a9e3183c9e073c0ca
 - Tutor can assign lessons to particular students
 - A new tutor is not viewed on the tutor list until references are verified on the backend by admin
 
+# Technologies Used
+- HTML 
+- CSS
+- React JS
+- Django 
+- Django Rest Framework
+- Python
+- SendGrid Email API
+- React Router
+- React Boostrap
+- Pillow
