@@ -6,4 +6,12 @@ Better Minds Tutoring is an app where users are able to find and connect with a 
 Video walkthrough - https://www.loom.com/share/4074ed81e442409a9e3183c9e073c0ca
 
 # Features
-- ccjcjcj
+- Users can register as a student or a tutor
+- User are able to create a student or tutor profile
+- Students are able to filter through tutors depending on the subject
+- Students can select tutor of their choosing
+- Tutor is sent email notifying them that a student has requested to work with them
+- Student can ask questions about a particular lesson given by the tutor and that question is sent by email
+- Tutor can assign lessons to particular students
+- A new tutor is not viewed on the tutor list until references are checked out on the backend by admin
+
