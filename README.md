@@ -13,5 +13,5 @@ Video walkthrough - https://www.loom.com/share/4074ed81e442409a9e3183c9e073c0ca
 - Tutor is sent email notifying them that a student has requested to work with them
 - Student can ask questions about a particular lesson given by the tutor and that question is sent by email
 - Tutor can assign lessons to particular students
-- A new tutor is not viewed on the tutor list until references are checked out on the backend by admin
+- A new tutor is not viewed on the tutor list until references are verified on the backend by admin
 
