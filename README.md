@@ -9,7 +9,7 @@ Login for Tutor Dashboard:<br>
 
 Login for Student:
 Username: duke
-password: safepass1
+Password: safepass1
 
 Video walkthrough - https://www.loom.com/share/4074ed81e442409a9e3183c9e073c0ca
 
