@@ -3,8 +3,8 @@
 # Overview
 Better Minds Tutoring is an app where users are able to find and connect with a certified tutor for a personalized learning plan. Once the user is connected with the tutor of their choosing, the tutor can leave notes for students about lessons, keep track of student progression, and also assign the students lessons all from within the app. Students can also leave messages for the tutor on lessons allowing for smooth communication throughout the learning process.
 
-Login for Tutor Dashboard:
-  Username: corey
+Login for Tutor Dashboard:<br>
+  Username: corey<br>
   password: safepass1
 
 Login for Student:
