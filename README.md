@@ -7,8 +7,8 @@ Login for Tutor Dashboard:<br>
   Username: corey<br>
   password: safepass1
 
-Login for Student:
-Username: duke
+Login for Student:<br>
+Username: duke<br>
 Password: safepass1
 
 Video walkthrough - https://www.loom.com/share/4074ed81e442409a9e3183c9e073c0ca
